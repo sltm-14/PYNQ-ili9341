@@ -1,10 +1,15 @@
+`ifndef ILI_INIT_CTRL_SV
+    `define ILI_INIT_CTRL_SV
+    
 module ili_init_ctrl
+import pkg_ili9341::*;
 #(
     parameter DW = 8
 )(
-	input clk,
-	input rst,
-	input ena,
+	input           clk,
+	input           rst,
+
+	input           ena,
 
 	output          cs,
 	output          dc,
@@ -13,109 +18,142 @@ module ili_init_ctrl
 	output          send
 
 );
-	localparam HIGH = 1;
-	localparam LOW  = 0;
 
-	reg [4:0] count_comm = 5'b1_0111;
-	reg [4:0] count_wait = 5'b1_0111;
+	localparam NO_DATA = 8'b0000_0000;
+	localparam HIGH    = 1'b1;
+	localparam LOW     = 1'b0;
 
-	typedef enum logic [3:0] {INIT,RST_A,RST_B,RST_C,CS_INI,COMM_DATA,CS_END,WAIT_15MS,WAIT} state_t;
-	state_t state;
+	typedef enum logic [3:0] {INIT,RST_A,RST_B,RST_C,CS_INI,COMM,DATA,CS_END,WAIT_15MS,WAIT} state_t;
+	state_t    state;
 
-	always @(edge clk)begin
-        if (clk_en)
-            sclk = clk;
-        else
-            sclk = 1'b0;
-    end
+	logic r_RstCntEna;
 
 	always @(posedge clk, negedge rst)begin
 		if (rst) begin
-			cs        = HIGH;
-			dc        = HIGH;
-			reset;
-			data;
-			load      = LOW;
-			done      = LOW;
-			shift_ena = LOW;
+			reset <= HIGH;
+			send  <= LOW;
+			data  <= NO_DATA;
+			cs    <= HIGH;
+			dc    <= HIGH;
 		end
 
-		 case(state)
-		 	INIT:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = HIGH;
-		 	end
+		else begin
+			case(state)
+			 	INIT:begin
+			 		if (ena) begin
+			 			state <= RST_A;
+			 		end
+			 		else begin
+			 			state <= INIT;
+			 		end
 
-		 	RST_A:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = HIGH;
-		 	end
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
 
-		 	RST_B:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = LOW;
-		 	end
+			 	RST_A:begin
 
-		 	RST_C:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = HIGH;
-		 	end
-
-		 	CS_INI:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = HIGH;
-		 	end
-
-		 	COMM_DATA:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = 0;
-		 	end
-
-		 	CS_END:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = HIGH;
-		 	end
-
-		 	WAIT_15MS:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = 0;
-		 	end
-
-		 	WAIT:begin
-				data    = 8'b0000_0000;
-				comm    = 0;
-				send    = 0;
-				rst_ili = 0;
-		 	end
-
-		 endcase
+			 		state <= WAIT_15MS;
 
 
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	RST_B:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	RST_C:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	CS_INI:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	COMM_DATA:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	CS_END:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	WAIT_15MS:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			 	WAIT:begin
+					reset <= HIGH;
+					send  <= LOW;
+					data  <= NO_DATA;
+					cs    <= HIGH;
+					dc    <= HIGH;
+			 	end
+
+			endcase
+		end
 	end
+
+	localparma INI_COMMS = 6'b10_01111;
+	localparam CN_C      = $clog2(INI_COMMS);
+
+	reg [CN_C-1:0] cnt_comm = INI_COMMS;
+
+	always @(posedge clk or negedge rst) begin
+        if(rst)
+            cnt_comm <= INI_COMMS;
+        else if (shift_en)
+            cnt_comm <= cnt_comm - 1;
+        else
+            cnt_comm <= INI_COMMS;
+    end
+
+
+	localparma RSTS  = 2'b11;
+	localparam CN_R  = $clog2(RSTS);
+
+	reg [CN_R-1:0] cnt_rst  = RSTS
 
     always @(posedge clk or negedge rst) begin
         if(rst)
-            count <= 5'b0111;
+            cnt_rst <= RSTS;
         else if (shift_en)
-            count <= count - 1;
+            cnt_rst <= cnt_rst - 1;
         else
-            count <= 5'b0111;
+            cnt_rst <= RSTS;
     end
 
 endmodule 
+`endif
