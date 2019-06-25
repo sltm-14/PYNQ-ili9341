@@ -1,13 +1,10 @@
 # PYNQ ili9341
 
-## Other_files:
-
+### Other_files:
 Archivos no utilizados en el proyecto
 
-## Srcs
-
+### Srcs
 Archivos SV del proyecto
 
-## Tb
-
+### Tb
 Archivos para simulacion
