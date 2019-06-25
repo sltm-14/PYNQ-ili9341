@@ -1,4 +1,5 @@
-module fsm_ili9341_init#(
+module ili_init_ctrl
+#(
     parameter DW = 8
 )(
 	input clk,
@@ -7,13 +8,9 @@ module fsm_ili9341_init#(
 
 	output          cs,
 	output          dc,
-	output          sclk
 	output          reset,
 	output [DW-1:0] data,
-	output          load,
-	output          done,
-	output          shift_ena
-
+	output          send
 
 );
 	localparam HIGH = 1;
