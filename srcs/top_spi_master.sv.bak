@@ -42,7 +42,7 @@ module top_spi_master(
 
         .shift_en (w_shift_ena),
         .done     (w_done),
-        .load     (w_load),
+		.load     (w_load),
         .sclk     (sclk)
     );
 
