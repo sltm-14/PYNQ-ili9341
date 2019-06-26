@@ -6,27 +6,44 @@ import pkg_ili9341::*;
 #(
     parameter DW = 8
 )(
-	input           clk,
-	input           rst,
+	input  clk,
+	input  rst,
 
-	input           ena,
-	input           sent,
+	input  ena,
+	input  sent,
 
-	output          cs,
-	output          dc,
-	output          reset,
-	output [DW-1:0] data,
-	output          send
+	output logic          cs,
+	output logic          dc,
+	output logic          reset,
+	output logic [DW-1:0] data,
+	output logic          send
 
 );
 
-	typedef enum logic [3:0] {INIT,RST_A,RST_B,RST_C,CS_INI,COMM,DATA,CS_END,WAIT_15MS,WAIT} state_t;
+	typedef enum logic [3:0] {INIT,RST_A,RST_B,RST_C,CS_INI,COMM_DATA,CS_END,WAIT_15MS,WAIT} state_t;
 	state_t    state;
 
-	logic   r_comm_ena;
-	logic   r_rst_ena;
-	logic   r_15_ena;
-	logic   r_10_ena;
+	localparam INI_COMMS = 6'b10_01111;
+	localparam CN_C      = $clog2(INI_COMMS);
+
+	localparam RSTS      = 2'b11;
+	localparam CN_R      = $clog2(RSTS);
+
+	localparam MS15      = 4'b1111;
+	localparam CN_15     = $clog2(MS15);
+
+	localparam CYCL10    = 4'b1010;
+	localparam CN_10     = $clog2(CYCL10);
+
+	logic [CN_C-1:0]  cnt_comm = INI_COMMS;
+	logic [CN_R-1:0]  cnt_rst  = RSTS;
+	logic [CN_15-1:0] cnt_15   = MS15;
+	logic [CN_10-1:0] cnt_10   = CYCL10;
+
+	logic  r_comm_ena;
+	logic  r_rst_ena;
+	logic  r_15_ena;
+	logic  r_10_ena;
 	
 	always @( posedge clk, negedge rst )begin
 		if (rst) begin
@@ -198,7 +215,7 @@ import pkg_ili9341::*;
 
 					reset      = HIGH;
 					send       = HIGH;
-					data       = ini_commands[7:0][cnt_comm];
+					data       = ini_commands[cnt_comm];
 					cs         = LOW;
 					dc         = ini_commands[8][cnt_comm];
 			 	end
@@ -247,10 +264,6 @@ import pkg_ili9341::*;
 	end
 
 
-	localparam INI_COMMS = 6'b10_01111;
-	localparam CN_C      = $clog2(INI_COMMS);
-
-	logic [CN_C-1:0]   cnt_comm = INI_COMMS;
 	
 	always @(posedge clk or negedge rst) begin
         if(rst)
@@ -262,11 +275,6 @@ import pkg_ili9341::*;
     end
 
 
-    localparam CYCL10  = 4'b1010;
-	localparam CN_10   = $clog2(CYCL10);
-
-	logic [CN_10-1:0]   cnt_10  = CYCL10;
-	
     always @(posedge clk or negedge rst) begin
         if(rst)
             cnt_10 <= CYCL10;
@@ -275,12 +283,7 @@ import pkg_ili9341::*;
         else
             cnt_10 <= CYCL10;
     end
-
-
-	localparam RSTS  = 2'b11;
-	localparam CN_R  = $clog2(RSTS);
-
-	logic [CN_R-1:0]   cnt_rst  = RSTS;
+	
 		
     always @(posedge clk or negedge rst) begin
         if(rst)
@@ -292,11 +295,6 @@ import pkg_ili9341::*;
     end
 
 
-    localparam MS15  = 4'b1111;
-	localparam CN_15  = $clog2(MS15);
-
-	logic [CN_15-1:0]   cnt_15  = MS15;
-	
     always @(posedge clk or negedge rst) begin
         if(rst)
             cnt_15 <= MS15;
