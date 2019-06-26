@@ -1,6 +1,8 @@
-spi_ctrl.sv
-spi_shift.sv
-spi_write.sv
-spi_master_mcp.sv
+../src/clk_divider.sv
+../src/debouncer.sv
+../src/ili_init.sv
+../src/spi_ctrl.sv
+../src/spi_shift.sv
+../src/top_spi_master.sv
 
-tb_spi_master_mcp.sv
+tb_spi_master.sv
