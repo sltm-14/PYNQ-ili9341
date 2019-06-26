@@ -3,7 +3,17 @@
 
 package pkg_ili9341;
 
-	reg[8:0] ini_commands [0:46] = '{
+	localparam COMM_INIT = 47;
+
+	localparam NO_DATA   = 8'b0000_0000;
+
+	localparam HIGH      = 1'b1;
+	localparam LOW       = 1'b0;
+
+	localparam ON        = 1'b1;
+	localparam OFF       = 1'b0;
+
+	reg[8:0] ini_commands [0:COMM_INIT-1] = '{
 
 		{1'b0, 8'hCB}, 
 
