@@ -13,19 +13,19 @@ module spi_shift
 
     output          mosi
 );
-	reg [DW:0] data_r = 0;
+	reg [DW:0] data_r = 9'b1_1111_1111;
 
-    always @(posedge clk or negedge rst) begin
-        if (rst)
-			data_r = 8'b0000_0000;
+    always @( posedge clk, negedge rst ) begin
+        if (!rst)
+			data_r = 9'b1_1111_1111;
 		else if(load)
-            data_r = { data,1'b0};
-        else if (shift_en)
-            data_r = {data_r[DW-1:0], miso};
+            data_r = { data, miso };
+        else if ( shift_en )
+            data_r = { data_r[DW-1:0], miso };
         else
             data_r = data_r;
     end
 
-    assign mosi = data_r[DW];
+    assign mosi = shift_en? data_r[DW] : 1'b1;
 
 endmodule

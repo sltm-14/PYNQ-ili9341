@@ -13,7 +13,7 @@ package pkg_ili9341;
 	localparam ON        = 1'b1;
 	localparam OFF       = 1'b0;
 
-	reg[8:0] ini_commands [0:COMM_INIT-1] = '{
+	reg[8:0] ini_commands [COMM_INIT-1:0] = '{
 
 		{1'b0, 8'hCB}, 
 

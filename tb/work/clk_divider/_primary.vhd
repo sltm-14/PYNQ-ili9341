@@ -7,8 +7,8 @@ entity clk_divider is
         COUNT_LENGTH    : vl_notype
     );
     port(
-        i_rst           : in     vl_logic;
-        i_clk_FPGA      : in     vl_logic;
+        rst             : in     vl_logic;
+        i_clk           : in     vl_logic;
         o_clk           : out    vl_logic
     );
     attribute mti_svvh_generic_type : integer;

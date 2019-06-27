@@ -5,199 +5,222 @@ cModel Technology
 Z0 dC:\Users\c18560\Documents\Carem\Ili\ILI9341\Pynq-ili9341\tb
 vclk_divider
 Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
-Z2 !s100 0]hV1>=2?`<TdZXL:8H9c1
-Z3 IXWVQXY^DbC[TCFXZ[_VS=2
-Z4 Vz8gO1Q7j]fm^a^JlA=T;;2
-Z5 !s105 clk_divider_sv_unit
-S1
-Z6 dC:\Users\c18560\Documents\Carem\Ili\ILI9341\Pynq-ili9341\tb
-Z7 w1561479699
-Z8 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/clk_divider.sv
-Z9 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/clk_divider.sv
-L0 2
-Z10 OV;L;10.1d;51
-r1
-31
-Z11 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/clk_divider.sv|
-Z12 o-work work -sv -O0
-Z13 !s108 1561585767.438000
-Z14 !s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/clk_divider.sv|
 !i10b 1
+!s100 8zJi<FQ8<8;5WXX1dfBPz0
+I5REA``Yk<l^LQkUKBnSaL1
+VDk3EVj2cERG3ZM<_Ca9`V0
+!s105 clk_divider_sv_unit
+S1
+Z2 dC:\Users\c18560\Documents\Carem\Ili\ILI9341\Pynq-ili9341\tb
+w1561652833
+8../src/clk_divider.sv
+F../src/clk_divider.sv
+L0 4
+Z3 OV;L;10.1d;51
+r1
 !s85 0
+31
+Z4 !s108 1561659951.044000
+Z5 !s107 tb_spi_master.sv|../src/top_spi_master.sv|../src/spi_shift.sv|../src/spi_ctrl.sv|../src/ili_init_ctrl.sv|../src/debouncer.sv|../src/clk_divider.sv|../src/pkg_ili9341.sv|
+Z6 !s90 -reportprogress|300|-f|files.f|
 !s101 -O0
+o-O0
 vclock_enable
 R1
-Z15 !s100 bT`=LooZ7K6AGz3df[o@k1
-Z16 INGTeig><WbX;XQEH<3hfT0
-Z17 VfXgYe0MZ3E752g0`IJAD?0
-Z18 !s105 debouncer_sv_unit
-S1
-R6
-R7
-Z19 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv
-Z20 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv
-L0 20
-R10
-r1
-31
-Z21 !s108 1561585767.669000
-Z22 !s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv|
-Z23 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv|
-R12
 !i10b 1
+!s100 ODkHAFD^:llOX8L@Xj=5T3
+IHP6cV<DgX8R^;I]QB;Iz=3
+VfXgYe0MZ3E752g0`IJAD?0
+Z7 !s105 debouncer_sv_unit
+S1
+R2
+Z8 w1561479699
+Z9 8../src/debouncer.sv
+Z10 F../src/debouncer.sv
+L0 20
+R3
+r1
 !s85 0
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
 vdebounce_better_version
 R1
-Z24 !s100 WSg2l]BEI>71R`1=hPW]60
-Z25 I7=;=1_=:]BDSa7M=>0KCZ1
-Z26 VgNA79gT=Z7^DVRH[n[S770
-R18
-S1
-R6
-R7
-R19
-R20
-L0 2
-R10
-r1
-31
-R21
-R22
-R23
-R12
 !i10b 1
+!s100 JW:?XgIZE_ggZE@C9Ljd^2
+IUo]E^=Ddm[n389zB[K?c=2
+VgNA79gT=Z7^DVRH[n[S770
+R7
+S1
+R2
+R8
+R9
+R10
+L0 2
+R3
+r1
 !s85 0
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
 vili_init_ctrl
 R1
-Z27 DXx4 work 11 pkg_ili9341 0 22 KWGYkM3IPP1ODz^26BiXh1
-Z28 !s100 <Vc<3Tb?8AA8>B[3DD`oV3
-Z29 ILB0g5^O>X@;CcKVm@VfS`1
-Z30 VOb`lS5klfDJiS]PzhHJH[2
-Z31 !s105 ili_init_ctrl_sv_unit
-S1
-R6
-Z32 w1561583212
-Z33 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/ili_init_ctrl.sv
-Z34 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/ili_init_ctrl.sv
-L0 4
-R10
-r1
-31
-Z35 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/ili_init_ctrl.sv|
-R12
-Z36 !s108 1561585767.923000
-Z37 !s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/ili_init_ctrl.sv|
+Z11 DXx4 work 11 pkg_ili9341 0 22 CjnSdJNOQiHO?T=Ylf8]c0
 !i10b 1
+!s100 SQ8VQ?[?]PKZ:dXBN>z=j0
+I>DXegkYUSSU8M5?PZi;082
+Vl<3O?`BoN>Y3iD<TB=e]83
+!s105 ili_init_ctrl_sv_unit
+S1
+R2
+w1561659701
+8../src/ili_init_ctrl.sv
+F../src/ili_init_ctrl.sv
+L0 4
+R3
+r1
 !s85 0
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
 vmy_dff_en
 R1
-Z38 !s100 j1gX_GKD:mHb:M00lj@X42
-Z39 I3@o7@7JXP35SK<io005XE1
-Z40 VeOLOlakdcJY<aMXR1Z<Bo0
-R18
-S1
-R6
-R7
-R19
-R20
-L0 39
-R10
-r1
-31
-R21
-R22
-R23
-R12
 !i10b 1
+!s100 S5843HXoAWE9?ZL3JZ:=M2
+IBeaC9=S;F;@dOkBTDD6g?2
+VeOLOlakdcJY<aMXR1Z<Bo0
+R7
+S1
+R2
+R8
+R9
+R10
+L0 39
+R3
+r1
 !s85 0
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
 Xpkg_ili9341
 R1
-Z41 !s100 oGJWe8fl00=V2OO?lRUlX2
-Z42 IKWGYkM3IPP1ODz^26BiXh1
-Z43 VKWGYkM3IPP1ODz^26BiXh1
-S1
-R6
-Z44 w1561581048
-Z45 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/pkg_ili9341.sv
-Z46 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/pkg_ili9341.sv
-L0 4
-R10
-r1
-31
-Z47 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/pkg_ili9341.sv|
-R12
-Z48 !s108 1561585767.303000
-Z49 !s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/pkg_ili9341.sv|
 !i10b 1
+!s100 IgTd9F]oWn@8DJEOPS?072
+ICjnSdJNOQiHO?T=Ylf8]c0
+VCjnSdJNOQiHO?T=Ylf8]c0
+S1
+R2
+w1561651130
+8../src/pkg_ili9341.sv
+F../src/pkg_ili9341.sv
+L0 4
+R3
+r1
 !s85 0
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
 vspi_ctrl
 R1
-Z50 !s100 T6N6YB=Be2:hgeKcf=]>X0
-Z51 IcmMR@eZ7ja]8mH[@MT]=23
-Z52 VYIlzf<SN_cYzPd4;@c8392
-Z53 !s105 spi_ctrl_sv_unit
-S1
-R6
-R7
-Z54 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv
-Z55 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv
-L0 2
-R10
-r1
-31
-Z56 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv|
-R12
-Z57 !s108 1561585768.073000
-Z58 !s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv|
 !i10b 1
+!s100 UJ@a_ZKl18aVDm__S6SIz1
+I5?YPJ8Vh3DQcYReJOLo]G1
+VdGR3ahP6d8fbOB^E]n4ng3
+!s105 spi_ctrl_sv_unit
+S1
+R2
+w1561659944
+8../src/spi_ctrl.sv
+F../src/spi_ctrl.sv
+L0 2
+R3
+r1
 !s85 0
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
 vspi_shift
 R1
-Z59 !s100 mLkQM18djz_0PPPTEO`n42
-Z60 IfPW?Khm:lm_hgDnd2GGh@2
-Z61 Vj>XzocOTfB]@1CAoX9XWP0
-Z62 !s105 spi_shift_sv_unit
-S1
-R6
-R7
-Z63 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_shift.sv
-Z64 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_shift.sv
-L0 2
-R10
-r1
-31
-Z65 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_shift.sv|
-R12
 !i10b 1
+!s100 Z`;?`OoC1c^OFUk:j0M3?1
+IPDkOShf7]iVLZJYOZ7OPF1
+Vj>XzocOTfB]@1CAoX9XWP0
+!s105 spi_shift_sv_unit
+S1
+R2
+w1561654892
+8../src/spi_shift.sv
+F../src/spi_shift.sv
+L0 2
+R3
+r1
 !s85 0
-Z66 !s108 1561585768.235000
-Z67 !s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_shift.sv|
+31
+R4
+R5
+R6
 !s101 -O0
+o-O0
+vtb_spi_master
+R1
+R11
+!i10b 1
+!s100 ]Z1G<ii4^^G<59WH787kU2
+If<8M4iA0[b=XEGhi;ezL71
+VKU499dER`7X;=7_Ab_<Uc3
+!s105 tb_spi_master_sv_unit
+S1
+R2
+w1561653384
+8tb_spi_master.sv
+Ftb_spi_master.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!s101 -O0
+o-O0
 vtop_spi_master
 R1
 !i10b 1
-Z68 !s100 493^]MJQ4<_]zg_B_=QVJ2
-Z69 IoUL^kz2P9Ed1aUUKB>4cc0
-Z70 VAKI5=YZag?7D13N0X>K0F0
-Z71 !s105 top_spi_master_sv_unit
+!s100 W>nF2]TKS9oM<Kc2k8j6Z2
+I[DG3d`kL26Ok2i9Nd3o0V0
+VAKI5=YZag?7D13N0X>K0F0
+!s105 top_spi_master_sv_unit
 S1
-R6
-w1561585724
-Z72 8C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/top_spi_master.sv
-Z73 FC:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/top_spi_master.sv
+R2
+w1561659321
+8../src/top_spi_master.sv
+F../src/top_spi_master.sv
 L0 2
-R10
+R3
 r1
 !s85 0
 31
-!s108 1561585768.483000
-!s107 C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/top_spi_master.sv|
-Z74 !s90 -reportprogress|300|-work|work|-sv|C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/top_spi_master.sv|
+R4
+R5
+R6
 !s101 -O0
-R12
+o-O0

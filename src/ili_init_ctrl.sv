@@ -11,6 +11,7 @@ import pkg_ili9341::*;
 
 	input  ena,
 	input  sent,
+	input  shift_dis,
 
 	output logic          cs,
 	output logic          dc,
@@ -21,9 +22,9 @@ import pkg_ili9341::*;
 );
 
 	typedef enum logic [3:0] {INIT,RST_A,RST_B,RST_C,CS_INI,COMM_DATA,CS_END,WAIT_15MS,WAIT} state_t;
-	state_t    state;
+	state_t    state ;
 
-	localparam INI_COMMS = 6'b10_01111;
+	localparam INI_COMMS = 7'b10_1111;
 	localparam CN_C      = $clog2(INI_COMMS);
 
 	localparam RSTS      = 2'b11;
@@ -32,26 +33,22 @@ import pkg_ili9341::*;
 	localparam MS15      = 4'b1111;
 	localparam CN_15     = $clog2(MS15);
 
-	localparam CYCL10    = 4'b1010;
-	localparam CN_10     = $clog2(CYCL10);
+	localparam CYCL8     = 3'b111;
+	localparam CN_8      = $clog2(CYCL8);
 
 	logic [CN_C-1:0]  cnt_comm = INI_COMMS;
 	logic [CN_R-1:0]  cnt_rst  = RSTS;
 	logic [CN_15-1:0] cnt_15   = MS15;
-	logic [CN_10-1:0] cnt_10   = CYCL10;
+	logic [CN_8-1:0]  cnt_8    = CYCL8;
 
 	logic  r_comm_ena;
 	logic  r_rst_ena;
 	logic  r_15_ena;
-	logic  r_10_ena;
+	logic  r_8_ena;
 	
 	always @( posedge clk, negedge rst )begin
-		if (rst) begin
-			reset <= HIGH;
-			send  <= LOW;
-			data  <= NO_DATA;
-			cs    <= HIGH;
-			dc    <= HIGH;
+		if (!rst) begin
+			state = INIT;
 		end
 
 		else begin
@@ -110,7 +107,7 @@ import pkg_ili9341::*;
 			 	end
 
 			 	WAIT:begin
-					if      ( cnt_comm < COMM_INIT  && !cnt_10 ) begin
+					if      ( cnt_comm < COMM_INIT  && !cnt_8 ) begin
 			 			state <= COMM_DATA;
 			 		end 
 			 		else if ( cnt_comm == COMM_INIT ) begin
@@ -127,11 +124,11 @@ import pkg_ili9341::*;
 
 
 	always @( * )begin
-		if (rst) begin
+		if (!rst) begin
 			r_comm_ena = OFF;
 			r_rst_ena  = OFF;
 			r_15_ena   = OFF;
-			r_10_ena   = OFF;
+			r_8_ena   = OFF;
 
 			reset = HIGH;
 			send  = LOW;
@@ -146,7 +143,7 @@ import pkg_ili9341::*;
 			 		r_comm_ena = OFF;
 					r_rst_ena  = OFF;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
 					reset      = HIGH;
 					send       = LOW;
@@ -159,9 +156,9 @@ import pkg_ili9341::*;
 					r_comm_ena = OFF;
 					r_rst_ena  = ON;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
-					reset      = LOW;
+					reset      = HIGH;
 					send       = LOW;
 					data       = NO_DATA;
 					cs         = HIGH;
@@ -172,9 +169,9 @@ import pkg_ili9341::*;
 					r_comm_ena = OFF;
 					r_rst_ena  = ON;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
-					reset      = HIGH;
+					reset      = LOW;
 					send       = LOW;
 					data       = NO_DATA;
 					cs         = HIGH;
@@ -185,7 +182,7 @@ import pkg_ili9341::*;
 					r_comm_ena = OFF;
 					r_rst_ena  = ON;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
 					reset      = HIGH;
 					send       = LOW;
@@ -198,7 +195,7 @@ import pkg_ili9341::*;
 					r_comm_ena = OFF;
 					r_rst_ena  = OFF;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
 					reset      = HIGH;
 					send       = LOW;
@@ -211,20 +208,20 @@ import pkg_ili9341::*;
 					r_comm_ena = ON;
 					r_rst_ena  = OFF;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
 					reset      = HIGH;
 					send       = HIGH;
 					data       = ini_commands[cnt_comm];
 					cs         = LOW;
-					dc         = ini_commands[8][cnt_comm];
+					dc         = ini_commands[cnt_comm][8];
 			 	end
 
 			 	CS_END:begin
 					r_comm_ena = OFF;
 					r_rst_ena  = OFF;
 					r_15_ena   = OFF;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
 					reset      = HIGH;
 					send       = LOW;
@@ -237,9 +234,9 @@ import pkg_ili9341::*;
 					r_comm_ena = OFF;
 					r_rst_ena  = OFF;
 					r_15_ena   = ON;
-					r_10_ena   = OFF;
+					r_8_ena    = OFF;
 
-					reset      = HIGH;
+					reset      = reset;
 					send       = LOW;
 					data       = NO_DATA;
 					cs         = HIGH;
@@ -250,12 +247,12 @@ import pkg_ili9341::*;
 					r_comm_ena = OFF;
 					r_rst_ena  = OFF;
 					r_15_ena   = OFF;
-					r_10_ena   = ON;
+					r_8_ena    = ON;
 
 					reset      = HIGH;
 					send       = LOW;
 					data       = NO_DATA;
-					cs         = HIGH;
+					cs         = LOW;
 					dc         = HIGH;
 			 	end
 
@@ -265,38 +262,38 @@ import pkg_ili9341::*;
 
 
 	
-	always @(posedge clk or negedge rst) begin
-        if(rst)
+	always @( posedge clk, negedge rst ) begin
+        if(!rst)
             cnt_comm <= INI_COMMS;
-        else if (r_comm_ena)
+        else if ( r_comm_ena && shift_dis )
             cnt_comm <= cnt_comm - 1;
         else
-            cnt_comm <= INI_COMMS;
+            cnt_comm <= cnt_comm;
     end
 
 
-    always @(posedge clk or negedge rst) begin
-        if(rst)
-            cnt_10 <= CYCL10;
-        else if (r_10_ena)
-            cnt_10 <= cnt_10 - 1;
+    always @( posedge clk, negedge rst ) begin
+        if(!rst)
+            cnt_8 <= CYCL8;
+        else if (r_8_ena)
+            cnt_8 <= cnt_8 - 1;
         else
-            cnt_10 <= CYCL10;
+            cnt_8 <= CYCL8;
     end
 	
 		
-    always @(posedge clk or negedge rst) begin
-        if(rst)
+    always @( posedge clk, negedge rst ) begin
+        if(!rst)
             cnt_rst <= RSTS;
         else if (r_rst_ena)
             cnt_rst <= cnt_rst - 1;
         else
-            cnt_rst <= RSTS;
+            cnt_rst <= cnt_rst;
     end
 
 
-    always @(posedge clk or negedge rst) begin
-        if(rst)
+    always @( posedge clk, negedge rst ) begin
+        if(!rst)
             cnt_15 <= MS15;
         else if (r_15_ena)
             cnt_15 <= cnt_15 - 1;

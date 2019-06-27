@@ -1,4 +1,12 @@
-C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv
+C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/tb/tb_spi_master.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/tb/tb_spi_master.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module tb_spi_master
+-- Importing package pkg_ili9341
+
+Top level modules:
+	tb_spi_master
+
+} {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/debouncer.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module debounce_better_version
 -- Compiling module clock_enable
@@ -7,8 +15,14 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	debounce_better_version
 
-} {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/tb/tb_spi_master.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/tb/tb_spi_master.sv
+} {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv {2 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module spi_ctrl
+** Warning: C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv(44): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	spi_ctrl
 
 } {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/pkg_ili9341.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/pkg_ili9341.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -24,15 +38,6 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	clk_divider
 
-} {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv {2 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module spi_ctrl
-** Warning: C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_ctrl.sv(43): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-
-
-Top level modules:
-	spi_ctrl
-
 } {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/ili_init_ctrl.sv {2 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/ili_init_ctrl.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module ili_init_ctrl
@@ -42,6 +47,13 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 
 Top level modules:
 	ili_init_ctrl
+
+} {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/top_spi_master.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/top_spi_master.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module top_spi_master
+
+Top level modules:
+	top_spi_master
 
 } {} {}} C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_shift.sv {1 {vlog -work work -sv C:/Users/c18560/Documents/Carem/Ili/ILI9341/Pynq-ili9341/srcs/spi_shift.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012

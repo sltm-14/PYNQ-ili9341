@@ -1,4 +1,6 @@
-
+`ifndef CLK_DIVIDER_SV
+    `define CLK_DIVIDER_SV
+    
 module clk_divider
 #(
 	parameter FRECUENCY_IN  = 125000000,
@@ -8,8 +10,8 @@ module clk_divider
 )
 (
 	// Input signals
-	input i_rst, 
-	input i_clk_FPGA,
+	input rst, 
+	input i_clk,
 	
 	// Output signal
 	output o_clk
@@ -20,9 +22,9 @@ module clk_divider
 
 	localparam CONST = (FRECUENCY_IN/FRECUENCY_OUT)/2; // Counter limit
 
-	always@(posedge i_clk_FPGA, posedge i_rst) begin
+	always@(posedge i_clk, negedge rst) begin
 
-		if(i_rst) begin // Reset counter
+		if(!rst) begin // Reset counter
 			l_clk   <= 0;
 			counter <= 0;
 		end
@@ -42,3 +44,4 @@ module clk_divider
 	assign o_clk = l_clk;
 	
 endmodule
+`endif

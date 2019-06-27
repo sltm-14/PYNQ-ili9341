@@ -9,6 +9,7 @@ entity ili_init_ctrl is
         rst             : in     vl_logic;
         ena             : in     vl_logic;
         sent            : in     vl_logic;
+        shift_dis       : in     vl_logic;
         cs              : out    vl_logic;
         dc              : out    vl_logic;
         reset           : out    vl_logic;

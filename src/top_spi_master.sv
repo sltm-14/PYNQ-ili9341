@@ -16,34 +16,37 @@ module top_spi_master(
     wire w_shift_ena;
     wire w_done;
     wire w_load;
+    wire w_shift_dis;
 
     wire [7:0] w_data;
 
 
     ili_init_ctrl ILI_INIT(
-        .clk   (clk),
-        .rst   (rst),
+        .clk       (clk),
+        .rst       (rst),
 
-        .ena   (init_btn),
-        .sent  (w_done),
+        .ena       (init_btn),
+        .sent      (w_done),
+        .shift_dis (w_shift_dis),
 
-        .cs    (cs),
-        .dc    (dc),
-        .reset (reset),
-        .data  (w_data), // 7:0
-        .send  (w_send)
+        .cs        (cs),
+        .dc        (dc),
+        .reset     (reset),
+        .data      (w_data), 
+        .send      (w_send)
     );
     
     spi_ctrl CTRL(
-        .clk      (clk),
-        .rst      (rst),
+        .clk       (clk),
+        .rst       (rst),
+ 
+        .send      (w_send),
 
-        .send     (w_send),
-
-        .shift_en (w_shift_ena),
-        .done     (w_done),
-        .load     (w_load),
-        .sclk     (sclk)
+        .shift_dis (w_shift_dis),
+        .shift_en  (w_shift_ena),
+        .done      (w_done),
+        .load      (w_load),
+        .sclk      (sclk)
     );
 
     spi_shift SHIFT(
