@@ -116,7 +116,7 @@ module spi_ctrl(
                 load      = 1'b0;
                 done      = 1'b1;
 
-                clk_en    = 1'b0;
+                clk_en    = 1'b1;
             end
             
             

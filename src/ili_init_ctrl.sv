@@ -212,9 +212,9 @@ import pkg_ili9341::*;
 
 					reset      = HIGH;
 					send       = HIGH;
-					data       = ini_commands[cnt_comm];
+					data       = ini_commands[cnt_comm-1];
 					cs         = LOW;
-					dc         = ini_commands[cnt_comm][8];
+					dc         = ini_commands[cnt_comm-1][8];
 			 	end
 
 			 	CS_END:begin
@@ -253,7 +253,7 @@ import pkg_ili9341::*;
 					send       = LOW;
 					data       = NO_DATA;
 					cs         = LOW;
-					dc         = HIGH;
+					dc         = ini_commands[cnt_comm][8];;
 			 	end
 
 			endcase
@@ -265,7 +265,7 @@ import pkg_ili9341::*;
 	always @( posedge clk, negedge rst ) begin
         if(!rst)
             cnt_comm <= INI_COMMS;
-        else if ( r_comm_ena && shift_dis )
+        else if ( sent )
             cnt_comm <= cnt_comm - 1;
         else
             cnt_comm <= cnt_comm;
@@ -275,7 +275,7 @@ import pkg_ili9341::*;
     always @( posedge clk, negedge rst ) begin
         if(!rst)
             cnt_8 <= CYCL8;
-        else if (r_8_ena)
+        else if ( r_8_ena )
             cnt_8 <= cnt_8 - 1;
         else
             cnt_8 <= CYCL8;
