@@ -62,7 +62,7 @@ module spi_ctrl(
             end
             
             SHIFT : begin
-                if(count == 5'b0_0000)
+                if(count == 5'b0_0001)
                     state = DONE;
                 else
                     state = state;

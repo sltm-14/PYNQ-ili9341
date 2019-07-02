@@ -16,16 +16,16 @@ module spi_shift
 	reg [DW:0] data_r = 9'b1_1111_1111;
 
     always @( posedge clk, negedge rst ) begin
-        if (!rst)
+        if ( !rst )
 			data_r = 9'b1_1111_1111;
-		else if(load)
+		else if( load )
             data_r = { data, miso };
         else if ( shift_en )
             data_r = { data_r[DW-1:0], miso };
         else
-            data_r = data_r;
+            data_r = { 1'b1, data_r[DW-1:0] };
     end
 
-    assign mosi = shift_en? data_r[DW] : 1'b1;
+    assign mosi =  data_r[DW] ;
 
 endmodule

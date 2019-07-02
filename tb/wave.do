@@ -7,8 +7,8 @@ add wave -noupdate /tb_spi_master/TB/init_btn
 add wave -noupdate /tb_spi_master/TB/miso
 add wave -noupdate -divider OUTPUTS
 add wave -noupdate -color Gold /tb_spi_master/TB/reset
-add wave -noupdate -color Gold /tb_spi_master/TB/mosi
 add wave -noupdate -color Gold /tb_spi_master/TB/sclk
+add wave -noupdate -color Gold /tb_spi_master/TB/mosi
 add wave -noupdate -color Gold /tb_spi_master/TB/dc
 add wave -noupdate -color Gold /tb_spi_master/TB/cs
 add wave -noupdate -divider ILI_INIT
@@ -51,7 +51,7 @@ add wave -noupdate /tb_spi_master/TB/SHIFT/miso
 add wave -noupdate -radix unsigned /tb_spi_master/TB/SHIFT/data
 add wave -noupdate /tb_spi_master/TB/SHIFT/mosi
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {136 ps} 0}
+WaveRestoreCursors {{Cursor 1} {126 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -67,4 +67,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {58 ps} {150 ps}
+WaveRestoreZoom {98 ps} {190 ps}
