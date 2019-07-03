@@ -12,17 +12,17 @@ VDk3EVj2cERG3ZM<_Ca9`V0
 !s105 clk_divider_sv_unit
 S1
 Z2 dC:\Users\c18560\Documents\Carem\Ili\ILI9341\Pynq-ili9341\tb
-w1561652833
+Z3 w1562084257
 8../src/clk_divider.sv
 F../src/clk_divider.sv
 L0 4
-Z3 OV;L;10.1d;51
+Z4 OV;L;10.1d;51
 r1
 !s85 0
 31
-Z4 !s108 1562083487.843000
-Z5 !s107 tb_spi_master.sv|../src/top_spi_master.sv|../src/spi_shift.sv|../src/spi_ctrl.sv|../src/ili_init_ctrl.sv|../src/debouncer.sv|../src/clk_divider.sv|../src/pkg_ili9341.sv|
-Z6 !s90 -reportprogress|300|-f|files.f|
+Z5 !s108 1562167693.697000
+Z6 !s107 tb_spi_master.sv|../src/top_spi_master.sv|../src/spi_shift.sv|../src/spi_ctrl.sv|../src/ili_init_ctrl.sv|../src/debouncer.sv|../src/clk_divider.sv|../src/pkg_ili9341.sv|
+Z7 !s90 -reportprogress|300|-f|files.f|
 !s101 -O0
 o-O0
 vclock_enable
@@ -31,20 +31,20 @@ R1
 !s100 ODkHAFD^:llOX8L@Xj=5T3
 IHP6cV<DgX8R^;I]QB;Iz=3
 VfXgYe0MZ3E752g0`IJAD?0
-Z7 !s105 debouncer_sv_unit
+Z8 !s105 debouncer_sv_unit
 S1
 R2
-Z8 w1561479699
+R3
 Z9 8../src/debouncer.sv
 Z10 F../src/debouncer.sv
 L0 20
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vdebounce_better_version
@@ -53,43 +53,43 @@ R1
 !s100 JW:?XgIZE_ggZE@C9Ljd^2
 IUo]E^=Ddm[n389zB[K?c=2
 VgNA79gT=Z7^DVRH[n[S770
-R7
+R8
 S1
 R2
-R8
+R3
 R9
 R10
 L0 2
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vili_init_ctrl
 R1
 Z11 DXx4 work 11 pkg_ili9341 0 22 CjnSdJNOQiHO?T=Ylf8]c0
 !i10b 1
-!s100 2NgH8Yco6CG2PH0[oG[z11
-IL7^MED8PMal@FMKmDf<CH0
+!s100 GE=d8C7L4Cj4Z8US6hEX`1
+IjhIAl`@LOZIAZPbN^=GW_3
 Vl<3O?`BoN>Y3iD<TB=e]83
 !s105 ili_init_ctrl_sv_unit
 S1
 R2
-w1562083484
+w1562167655
 8../src/ili_init_ctrl.sv
 F../src/ili_init_ctrl.sv
 L0 4
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vmy_dff_en
@@ -98,20 +98,20 @@ R1
 !s100 S5843HXoAWE9?ZL3JZ:=M2
 IBeaC9=S;F;@dOkBTDD6g?2
 VeOLOlakdcJY<aMXR1Z<Bo0
-R7
+R8
 S1
 R2
-R8
+R3
 R9
 R10
 L0 39
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 Xpkg_ili9341
@@ -122,39 +122,39 @@ ICjnSdJNOQiHO?T=Ylf8]c0
 VCjnSdJNOQiHO?T=Ylf8]c0
 S1
 R2
-w1562079067
+R3
 8../src/pkg_ili9341.sv
 F../src/pkg_ili9341.sv
 L0 4
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vspi_ctrl
 R1
 !i10b 1
-!s100 RS>ZbSja>WcFDMi`9e=C70
-IYYe1Lo?JMiNG;JUkW_=H62
+!s100 ]_F3z?CM41HJ]ldG=Vd8h3
+I=FE^00@VZUl0C`b>ZWzH=3
 VdGR3ahP6d8fbOB^E]n4ng3
 !s105 spi_ctrl_sv_unit
 S1
 R2
-w1562080776
+w1562166276
 8../src/spi_ctrl.sv
 F../src/spi_ctrl.sv
 L0 2
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vspi_shift
@@ -166,17 +166,17 @@ Vj>XzocOTfB]@1CAoX9XWP0
 !s105 spi_shift_sv_unit
 S1
 R2
-w1562079629
+R3
 8../src/spi_shift.sv
 F../src/spi_shift.sv
 L0 2
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vtb_spi_master
@@ -189,38 +189,38 @@ VKU499dER`7X;=7_Ab_<Uc3
 !s105 tb_spi_master_sv_unit
 S1
 R2
-w1561653384
+R3
 8tb_spi_master.sv
 Ftb_spi_master.sv
 L0 1
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0
 vtop_spi_master
 R1
 !i10b 1
-!s100 W>nF2]TKS9oM<Kc2k8j6Z2
-I[DG3d`kL26Ok2i9Nd3o0V0
+!s100 ^2_W[<VN]T[E>RGY3<:lW3
+IZ^GoTlS[WCR?4zml]KCU<0
 VAKI5=YZag?7D13N0X>K0F0
 !s105 top_spi_master_sv_unit
 S1
 R2
-w1561659321
+w1562165473
 8../src/top_spi_master.sv
 F../src/top_spi_master.sv
 L0 2
-R3
+R4
 r1
 !s85 0
 31
-R4
 R5
 R6
+R7
 !s101 -O0
 o-O0

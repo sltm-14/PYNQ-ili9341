@@ -5,4 +5,4 @@ onbreak {resume}
 set NoQuitOnFinish 1
 vsim -voptargs=+acc work.tb_spi_master
 do wave.do
-run 145ps
+run 1900ps

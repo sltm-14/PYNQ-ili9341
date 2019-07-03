@@ -23,9 +23,9 @@ module spi_ctrl(
 
     logic       r_sclk  = 1'b0;
 
-    always @( edge clk )begin
+    always @( * )begin
         if (clk_en)
-            r_sclk = ~r_sclk;
+            r_sclk = ~clk;
         else
             r_sclk = 1'b0;
     end

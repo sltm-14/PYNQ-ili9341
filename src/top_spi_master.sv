@@ -17,9 +17,26 @@ module top_spi_master(
     wire w_done;
     wire w_load;
     wire w_shift_dis;
+    wire w_clk;
+    wire w_init_btn;
 
     wire [7:0] w_data;
 
+
+/*    clk_divider CLK_DIV(
+        .rst        (rst),        
+        .i_clk      (clk),
+        
+        .o_clk      (w_clk)
+    );
+
+    debounce_better_version DEBOUN(
+        .pb_1       (init_btn),
+        .clk        (w_clk),
+
+        .pb_out     (w_init_btn)
+    );
+*/
 
     ili_init_ctrl ILI_INIT(
         .clk       (clk),

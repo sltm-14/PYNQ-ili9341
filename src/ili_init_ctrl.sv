@@ -46,9 +46,16 @@ import pkg_ili9341::*;
 	logic  r_15_ena;
 	logic  r_8_ena;
 	
+
+	logic          r_reset = HIGH;
+	logic          r_send  = LOW;
+	logic [DW-1:0] r_data  = NO_DATA;
+	logic          r_cs    = HIGH;
+	logic          r_dc    = HIGH;
+	
 	always @( posedge clk, negedge rst )begin
 		if (!rst) begin
-			state = INIT;
+			state <= INIT;
 		end
 
 		else begin
@@ -110,12 +117,16 @@ import pkg_ili9341::*;
 					if      ( cnt_comm < COMM_INIT  && !cnt_8 ) begin
 			 			state <= COMM_DATA;
 			 		end 
-			 		else if ( cnt_comm == COMM_INIT ) begin
+			 		else if ( cnt_comm == 0 ) begin
 			 			state <= CS_END;
 			 		end
 			 		else begin
 			 			state <= WAIT;
 			 		end
+			 	end
+			 	
+			 	default: begin
+			 	   state <= INIT;
 			 	end
 
 			endcase
@@ -128,13 +139,13 @@ import pkg_ili9341::*;
 			r_comm_ena = OFF;
 			r_rst_ena  = OFF;
 			r_15_ena   = OFF;
-			r_8_ena   = OFF;
+			r_8_ena    = OFF;
 
-			reset = HIGH;
-			send  = LOW;
-			data  = NO_DATA;
-			cs    = HIGH;
-			dc    = HIGH;
+			r_reset    = HIGH;
+			r_send     = LOW;
+			r_data     = NO_DATA;
+			r_cs       = HIGH;
+			r_dc       = HIGH;
 		end
 
 		else begin
@@ -145,11 +156,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = HIGH;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = HIGH;
-					dc         = HIGH;
+					r_reset    = HIGH;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = HIGH;
+					r_dc       = HIGH;
 			 	end
 
 			 	RST_A:begin
@@ -158,11 +169,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = HIGH;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = HIGH;
-					dc         = HIGH;
+					r_reset    = HIGH;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = HIGH;
+					r_dc       = HIGH;
 			 	end
 
 			 	RST_B:begin
@@ -171,11 +182,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = LOW;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = HIGH;
-					dc         = HIGH;
+					r_reset    = LOW;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = HIGH;
+					r_dc       = HIGH;
 			 	end
 
 			 	RST_C:begin
@@ -184,11 +195,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = HIGH;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = HIGH;
-					dc         = HIGH;
+					r_reset    = HIGH;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = HIGH;
+					r_dc       = HIGH;
 			 	end
 
 			 	CS_INI:begin
@@ -197,11 +208,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = HIGH;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = LOW;
-					dc         = HIGH;
+					r_reset    = HIGH;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = LOW;
+					r_dc       = HIGH;
 			 	end
 
 			 	COMM_DATA:begin
@@ -210,11 +221,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = HIGH;
-					send       = HIGH;
-					data       = ini_commands[cnt_comm-1];
-					cs         = LOW;
-					dc         = ini_commands[cnt_comm-1][8];
+					r_reset    = HIGH;
+					r_send     = HIGH;
+					r_data     = ini_commands[cnt_comm-1];
+					r_cs       = LOW;
+					r_dc       = ini_commands[cnt_comm-1][8];
 			 	end
 
 			 	CS_END:begin
@@ -223,11 +234,11 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = OFF;
 
-					reset      = HIGH;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = HIGH;
-					dc         = HIGH;
+					r_reset    = HIGH;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = HIGH;
+					r_dc       = HIGH;
 			 	end
 
 			 	WAIT_15MS:begin
@@ -236,11 +247,11 @@ import pkg_ili9341::*;
 					r_15_ena   = ON;
 					r_8_ena    = OFF;
 
-					reset      = reset;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = HIGH;
-					dc         = HIGH;
+					r_reset    = r_reset;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = HIGH;
+					r_dc       = HIGH;
 			 	end
 
 			 	WAIT:begin
@@ -249,17 +260,35 @@ import pkg_ili9341::*;
 					r_15_ena   = OFF;
 					r_8_ena    = ON;
 
-					reset      = HIGH;
-					send       = LOW;
-					data       = NO_DATA;
-					cs         = LOW;
-					dc         = ini_commands[cnt_comm][8];;
+					r_reset    = HIGH;
+					r_send     = LOW;
+					r_data     = NO_DATA;
+					r_cs       = LOW;
+					r_dc       = ini_commands[cnt_comm][8];;
+			 	end
+			 	
+			 	default: begin
+                    r_comm_ena = OFF;
+                    r_rst_ena  = OFF;
+                    r_15_ena   = OFF;
+                    r_8_ena    = OFF;
+        
+                    r_reset    = HIGH;
+                    r_send     = LOW;
+                    r_data     = NO_DATA;
+                    r_cs       = HIGH;
+                    r_dc       = HIGH;
 			 	end
 
 			endcase
 		end
 	end
 
+	assign reset = r_reset;
+	assign send  = r_send;
+	assign data  = r_data;
+	assign cs    = r_cs;
+	assign dc    = r_dc;
 
 	
 	always @( posedge clk, negedge rst ) begin
