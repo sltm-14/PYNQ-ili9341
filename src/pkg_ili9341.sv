@@ -13,80 +13,31 @@ package pkg_ili9341;
 	localparam ON        = 1'b1;
 	localparam OFF       = 1'b0;
 
-	reg[8:0] ini_commands [COMM_INIT-1:0] = '{
+	logic[8:0] ini_commands [COMM_INIT-1:0] = '{
+						{HIGH, HIGH, 8'h00}
 
-		{1'b0, 8'hCB}, 
+						/* Idle */  /* Memory Write */                                                                      /* Nop */
+						{LOW, LOW,  8'hCB}, {LOW, HIGH, 8'h39}, {LOW, HIGH, 8'h2C}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h34}, {LOW, HIGH, 8'h02}, {LOW, LOW,  8'hCF}, {LOW, HIGH, 8'h00},
 
-		/* Idle */
-		{1'b1, 8'h39}, 
-		/* Memory Write */
-		{1'b1, 8'h2C}, {1'b1, 8'h00}, 
-		{1'b1, 8'h34}, {1'b1, 8'h02}, 
+						/* Power control */
+						{LOW, HIGH, 8'hC1}, {LOW, HIGH, 8'h30}, {LOW, LOW,  8'hE8}, {LOW, HIGH, 8'h85}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h78}, {LOW, LOW,  8'hEA}, {LOW, HIGH, 8'h00},
+						{LOW, HIGH, 8'h00}, {LOW, LOW,  8'hED}, {LOW, HIGH, 8'h64}, {LOW, HIGH, 8'h03}, {LOW, HIGH, 8'h12}, {LOW, HIGH, 8'h81}, {LOW, LOW,  8'hF7}, {LOW, HIGH, 8'h20},
+						{LOW, LOW,  8'hC0}, {LOW, HIGH, 8'h23}, {LOW, LOW,  8'hC1}, {LOW, HIGH, 8'h10},
 
-		{1'b0, 8'hCF}, 
-		/* Nop */
-		{1'b1, 8'h00}, 
-		/* Power control */
-		{1'b1, 8'hC1}, 
-		{1'b1, 8'h30}, 
+						/* VCOM */
+						{LOW, LOW,  8'hC5}, {LOW, HIGH, 8'h3E}, {LOW, HIGH, 8'h28}, {LOW, LOW,  8'hC7}, {LOW, HIGH, 8'h86}, {LOW, LOW,  8'h36}, {LOW, HIGH, 8'h48},
 
-		{1'b0, 8'hE8},
+						/* Memory Access Control */
+						{LOW, LOW,  8'h3A}, {LOW, HIGH, 8'h55},
 
-		{1'b1, 8'h85}, {1'b1, 8'h00},
-		{1'b1, 8'h78}, 
+						/* Frame Rate */
+						{LOW, LOW,  8'hB1}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h18}, {LOW, LOW,  8'hB6}, {LOW, HIGH, 8'h08}, {LOW, HIGH, 8'h82}, {LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},
+						{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C} // Start  Memory-Write
 
-		{1'b0, 8'hEA}, 
-
-		{1'b1, 8'h00}, {1'b1, 8'h00}, 
-
-		{1'b0, 8'hED}, 
-
-		{1'b1, 8'h64}, {1'b1, 8'h03}, 
-		{1'b1, 8'h12}, {1'b1, 8'h81},
-
-		{1'b0, 8'hF7}, 
-
-		{1'b1, 8'h20}, 
-
-		{1'b0, 8'hC0},
-
-		{1'b1, 8'h23}, 
-
-		{1'b0, 8'hC1},
-
-		{1'b1, 8'h10}, 
-
-		// VCOM
-		{1'b0, 8'hC5}, 
-
-		{1'b1, 8'h3E}, {1'b1, 8'h28}, 
-
-		{1'b0, 8'hC7}, 
-
-		{1'b1, 8'h86},
-
-		{1'b0, 8'h36}, 
-
-		{1'b1, 8'h48},
-
-		// Memory Access Control
-		{1'b0, 8'h3A}, {1'b1, 8'h55},
-
-		// Frame Rate
-		{1'b0, 8'hB1}, 
-
-		{1'b1, 8'h00}, {1'b1, 8'h18},
-
-		{1'b0, 8'hB6}, 
-
-		{1'b1, 8'h08}, {1'b1, 8'h82}, 
-		{1'b1, 8'h27},
-		
-		{1'b0, 8'h11}, 
-
-		{1'b1, 8'h29},
-		{1'b0, 8'h2C} // Start  Memory-Write
+						{LOW, HIGH, 8'h00}
 	};
+
+
 
 endpackage
 `endif

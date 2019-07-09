@@ -1,13 +1,13 @@
 
 module spi_ctrl(
-    input  clk, 
+    input  clk,
     input  rst,
-    
+
     input  send,
 
-    output logic shift_dis, 
-    output logic shift_en, 
-    output logic done, 
+    output logic shift_dis,
+    output logic shift_en,
+    output logic done,
     output logic load,
     output logic sclk
 );
@@ -16,12 +16,10 @@ module spi_ctrl(
 
     state_t state;
 
-
-        
-    logic [3:0] count = 4'b0111;
+    logic [3:0] count   = 4'b0111;
+    logic       r_sclk  = 1'b0;
     logic       clk_en;
 
-    logic       r_sclk  = 1'b0;
 
     always @( * )begin
         if (clk_en)
@@ -50,17 +48,17 @@ module spi_ctrl(
         end
         else
         case(state)
-            INIT : begin                
+            INIT : begin
                 if(send)
                     state = LOAD;
                 else
                     state = state;
             end
-            
+
             LOAD : begin
                 state = SHIFT;
             end
-            
+
             SHIFT : begin
                 if(count == 5'b0_0001)
                     state = DONE;
@@ -72,12 +70,13 @@ module spi_ctrl(
                 state = INIT;
             end
 
-            
+
             default : begin
                 state = INIT;
             end
         endcase
     end
+
 
     always @(*) begin
 
@@ -90,7 +89,7 @@ module spi_ctrl(
 
                 clk_en    = 1'b0;
             end
-            
+
             LOAD : begin
                 shift_dis = 1'b0;
                 shift_en  = 1'b0;
@@ -99,8 +98,8 @@ module spi_ctrl(
 
                 clk_en    = 1'b0;
             end
-            
-            
+
+
             SHIFT : begin
                 shift_dis = 1'b0;
                 shift_en  = 1'b1;
@@ -118,8 +117,8 @@ module spi_ctrl(
 
                 clk_en    = 1'b1;
             end
-            
-            
+
+
             default : begin
                 shift_dis = 1'b0;
                 shift_en  = 1'b0;
@@ -130,7 +129,7 @@ module spi_ctrl(
             end
         endcase
     end
-    
+
 
 
 endmodule
