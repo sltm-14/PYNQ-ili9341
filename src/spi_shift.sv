@@ -1,13 +1,16 @@
+`ifndef SPI_SHIFT_SV
+    `define SPI_SHIFT_SV
 
 module spi_shift
+  import pkg_ili9341::*;
 #(
     parameter DW = 8
 )(
-    input           clk, 
+    input           clk,
     input           rst,
-      
+
     input           shift_en,
-    input           load, 
+    input           load,
     input           miso,
     input  [DW-1:0] data,
 
@@ -29,3 +32,4 @@ module spi_shift
     assign mosi =  data_r[DW] ;
 
 endmodule
+`endif

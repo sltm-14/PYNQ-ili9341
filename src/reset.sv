@@ -1,7 +1,7 @@
-`ifndef ILI_INIT_CTRL_SV
-    `define ILI_INIT_CTRL_SV
+`ifndef RESET_SV
+    `define RESET_SV
 
-module ili_init_ctrl
+module reset
 import pkg_ili9341::*;
 (
 	input  clk,
@@ -13,16 +13,24 @@ import pkg_ili9341::*;
   output o_reset_sent,
   output o_reset
 );
+  /*------------------------------------- STATES -------------------------------------*/
 
 	typedef enum logic [2:0] {IDLE,RESET,WAIT,DONE} state_t;
 	state_t state = IDLE;
 
+  /*----------------------------------- PARAMETERS -----------------------------------*/
+
 	localparam MS15  = 4'b1111;
 	localparam CN_15 = $clog2(MS15);
 
-	logic [CN_15-1:0] cnt_15 = MS15;
+  /*----------------------------------- REGISTERS ------------------------------------*/
 
-	logic r_reset = HIGH;
+	logic [CN_15-1:0] cnt_15        = MS15;
+	logic             r_reset       = HIGH;
+  logic             r_reset_sent = OFF;
+  logic             r_15_ena      = OFF;
+
+  /*---------------------------------- WAIT COUNTER ----------------------------------*/
 
   always @( posedge clk, negedge rst ) begin
     if(!rst)
@@ -33,9 +41,11 @@ import pkg_ili9341::*;
       cnt_15 <= MS15;
   end
 
+  /*---------------------------------- FSM STATES ------------------------------------*/
+
 	always @( posedge clk, negedge rst )begin
 		if (!rst) begin
-			state = INIT;
+			state <= IDLE;
 		end
 
 		else begin
@@ -50,7 +60,7 @@ import pkg_ili9341::*;
 			 	end
 
 			 	RESET:begin
-			 		state <= WAIT_15MS;
+			 		state <= WAIT;
 			 	end
 
 			 	WAIT:begin
@@ -74,6 +84,7 @@ import pkg_ili9341::*;
 		end
 	end
 
+  /*---------------------------------- FSM OUTPUTS -----------------------------------*/
 
 	always @( * )begin
 		if (!rst) begin
@@ -95,7 +106,7 @@ import pkg_ili9341::*;
 			 	RESET:begin
           r_15_ena     = OFF;
 
-          o_reset_sent = LOW;
+          r_reset_sent = LOW;
 					r_reset      = i_reset_val;
 			 	end
 
@@ -116,6 +127,8 @@ import pkg_ili9341::*;
 			endcase
 		end
 	end
+
+  /*-------------------------------- OUTPUTS ASSIGNATION ---------------------------------*/
 
   assign o_reset_sent = r_reset_sent;
   assign o_reset      = r_reset;

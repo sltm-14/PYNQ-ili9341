@@ -16,23 +16,28 @@ import pkg_ili9341::*;
 	output  o_reset_val,
 	output  o_resets_sent
 );
+  /*------------------------------------- STATES -------------------------------------*/
 
   typedef enum logic [3:0] {IDLE,RESET_H1,RESET_L,RESET_H2,DONE} state_t;
   state_t state ;
+
+  /*----------------------------------- REGISTERS ------------------------------------*/
 
   logic  r_reset_ena;
   logic  r_reset_val;
   logic  r_resets_sent;
 
+  /*---------------------------------- FSM STATES ------------------------------------*/
+
   always @( posedge clk, negedge rst )begin
     if (!rst) begin
-      state = IDLE;
+      state <= IDLE;
     end
 
     else begin
-      case(i_reset_init_ena)
+      case(state)
         IDLE:begin
-          if (ena) begin
+          if (i_reset_init_ena) begin
             state <= RESET_H1;
           end
           else begin
@@ -41,15 +46,30 @@ import pkg_ili9341::*;
         end
 
         RESET_H1:begin
-          state <= RESET_L;
+          if ( i_reset_sent ) begin
+            state <= RESET_L;
+          end
+          else begin
+            state <= RESET_H1;
+          end
         end
 
         RESET_L:begin
-          state <= RESET_H2;
+          if ( i_reset_sent ) begin
+            state <= RESET_H2;
+          end
+          else begin
+            state <= RESET_L;
+          end
         end
 
         RESET_H2:begin
-          state <= DONE;
+          if ( i_reset_sent ) begin
+            state <= DONE;
+          end
+          else begin
+            state <= RESET_H2;
+          end
         end
 
         DONE: begin
@@ -64,9 +84,7 @@ import pkg_ili9341::*;
     end
   end
 
- ////////////////////////////////////////////////////////////
- ///                                                      ///
- ////////////////////////////////////////////////////////////
+  /*---------------------------------- FSM OUTPUTS -----------------------------------*/
 
   always @( * )begin
 		if (!rst) begin
@@ -116,6 +134,8 @@ import pkg_ili9341::*;
 			endcase
 		end
 	end
+
+  /*-------------------------------- OUTPUTS ASSIGNATION ---------------------------------*/
 
   assign  o_reset_ena   = r_reset_ena;
   assign  o_reset_val   = r_reset_val;

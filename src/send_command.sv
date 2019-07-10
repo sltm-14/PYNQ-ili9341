@@ -1,26 +1,32 @@
-`ifndef ILI_INIT_CTRL_SV
-    `define ILI_INIT_CTRL_SV
+`ifndef SEND_COMMAND_SV
+    `define SEND_COMMAND_SV
 
-module ili_init_ctrl
-(
+module send_command
+import pkg_ili9341::*;
+#(
+    parameter DW = 8
+)(
 	input  clk,
 	input  rst,
 
-	input  i_send_comm_ena,
-	input  i_command_sent,
-  input  i_commands,
-  input  i_shift_dis,
+	input           i_send_comm_ena,
+	input           i_command_sent,
+  input           i_command,
+  input           i_shift_dis,
 
-	output o_comm_array_sent,
-	output o_send,
-  output o_data,
-  output o_dc,
-  output o_cs
-
+	output          o_comm_array_sent,
+	output          o_send,
+  output [DW-1:0] o_data,
+  output          o_dc,
+  output          o_cs
 );
+
+  /*------------------------------------- STATES -------------------------------------*/
 
   typedef enum logic [2:0] {IDLE,COMMAND,WAIT,DONE} state_t;
   state_t state = IDLE;
+
+  /*----------------------------------- PARAMETERS -----------------------------------*/
 
 	localparam INI_COMMS = 7'b10_1111;
 	localparam CN_C      = $clog2(INI_COMMS);
@@ -28,26 +34,31 @@ module ili_init_ctrl
 	localparam CYCL8     = 3'b111;
 	localparam CN_8      = $clog2(CYCL8);
 
-	logic [CN_C-1:0]  cnt_comm = INI_COMMS;
-	logic [CN_8-1:0]  cnt_8    = CYCL8;
+  /*----------------------------------- REGISTERS ------------------------------------*/
 
-	logic  r_comm_ena;
-	logic  r_8_ena;
+	logic [CN_C-1:0] cnt_comm = INI_COMMS;
+	logic [CN_8-1:0] cnt_8    = CYCL8;
 
-  logic r_comm_array_sent = LOW;
-	logic r_send            = LOW;
-  logic r_data            = NO_DATA;
-	logic r_cs              = HIGH;
-	logic r_dc              = HIGH;
+	logic          r_8_ena           = LOW;
+
+  logic          r_comm_array_sent = LOW;
+	logic          r_send            = LOW;
+  logic [DW-1:0] r_data            = NO_DATA;
+	logic          r_cs              = HIGH;
+	logic          r_dc              = HIGH;
+
+  /*-------------------------------- COMMAND COUNTER ---------------------------------*/
 
   always @( posedge clk, negedge rst ) begin
     if(!rst)
         cnt_comm <= INI_COMMS;
-    else if ( sent )
+    else if ( i_command_sent )
         cnt_comm <= cnt_comm - 1;
     else
         cnt_comm <= cnt_comm;
   end
+
+  /*---------------------------------- WAIT COUNTER ----------------------------------*/
 
   always @( posedge clk, negedge rst ) begin
     if(!rst)
@@ -58,9 +69,11 @@ module ili_init_ctrl
       cnt_8 <= CYCL8;
   end
 
+  /*---------------------------------- FSM STATES ------------------------------------*/
+
 	always @( posedge clk, negedge rst )begin
 		if (!rst) begin
-			state <= INIT;
+			state <= IDLE;
 		end
 
 		else begin
@@ -75,7 +88,7 @@ module ili_init_ctrl
 			 	end
 
 			 	COMMAND:begin
-			 		if ( sent ) begin
+			 		if ( i_command_sent ) begin
 			 			state <= WAIT;
 			 		end
 			 		else begin
@@ -84,7 +97,7 @@ module ili_init_ctrl
 			 	end
 
 			 	WAIT:begin
-					if      ( cnt_comm < COMM_INIT  && !cnt_8 ) begin
+					if ( cnt_comm < COMM_INIT  && !cnt_8 ) begin
 			 			state <= COMMAND;
 			 		end
 			 		else if ( cnt_comm == 0 ) begin
@@ -96,7 +109,7 @@ module ili_init_ctrl
 			 	end
 
         DONE:begin
-          status <= IDLE;
+          state <= IDLE;
         end
 
 			 	default: begin
@@ -107,73 +120,82 @@ module ili_init_ctrl
 		end
 	end
 
+  /*---------------------------------- FSM OUTPUTS -----------------------------------*/
 
 	always @( * )begin
 		if (!rst) begin
+      r_8_ena           = LOW;
+
       r_comm_array_sent = LOW;
     	r_send            = LOW;
-    	r_cs              = HIGH;
+      r_data            = NO_DATA;
     	r_dc              = HIGH;
+    	r_cs              = HIGH;
 		end
 
 		else begin
 			case(state)
 			 	IDLE:begin
+          r_8_ena           = LOW;
+
           r_comm_array_sent = LOW;
         	r_send            = LOW;
-        	r_cs              = HIGH;
+          r_data            = NO_DATA;
         	r_dc              = HIGH;
+        	r_cs              = HIGH;
 			 	end
 
-			 	COMM_DATA:begin
-					r_comm_ena = ON;
-					r_rst_ena  = OFF;
-					r_15_ena   = OFF;
-					r_8_ena    = OFF;
+			 	COMMAND:begin
+          r_8_ena           = LOW;
 
-					r_reset    = HIGH;
-					r_send     = HIGH;
-					r_data     = ini_commands[cnt_comm-1];
-					r_cs       = LOW;
-					r_dc       = ini_commands[cnt_comm-1][8];
+          r_comm_array_sent = LOW;
+        	r_send            = HIGH;
+          r_data            = ( i_command == INI_COMM ) ? ini_commands[cnt_comm-1]    : loop_commands[cnt_comm-1];
+          r_dc              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm-1][8] : loop_commands[cnt_comm-1][8];
+        	r_cs              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm-1][9] : loop_commands[cnt_comm-1][9];
 			 	end
 
 			 	WAIT:begin
-					r_comm_ena = OFF;
-					r_rst_ena  = OFF;
-					r_15_ena   = OFF;
-					r_8_ena    = ON;
+          r_8_ena           = HIGH;
 
-					r_reset    = HIGH;
-					r_send     = LOW;
-					r_data     = NO_DATA;
-					r_cs       = LOW;
-					r_dc       = ini_commands[cnt_comm][8];;
+          r_comm_array_sent = LOW;
+        	r_send            = LOW;
+          r_data            = NO_DATA;
+          r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm-1][8] : loop_commands[cnt_comm-1][8];
+        	r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm-1][9] : loop_commands[cnt_comm-1][9];
 			 	end
 
-			 	default: begin
-          r_comm_ena = OFF;
-          r_rst_ena  = OFF;
-          r_15_ena   = OFF;
-          r_8_ena    = OFF;
+        DONE:begin
+          r_8_ena           = LOW;
 
-          r_reset    = HIGH;
-          r_send     = LOW;
-          r_data     = NO_DATA;
-          r_cs       = HIGH;
-          r_dc       = HIGH;
+          r_comm_array_sent = HIGH;
+        	r_send            = LOW;
+          r_data            = NO_DATA;
+        	r_dc              = HIGH;
+        	r_cs              = HIGH;
+        end
+
+			 	default: begin
+          r_8_ena           = LOW;
+
+          r_comm_array_sent = LOW;
+        	r_send            = LOW;
+          r_data            = NO_DATA;
+          r_dc              = HIGH;
+        	r_cs              = HIGH;
 			 	end
 
 			endcase
 		end
 	end
 
-	assign reset = r_reset;
-	assign send  = r_send;
-	assign data  = r_data;
-	assign cs    = r_cs;
-	assign dc    = r_dc;
+  /*-------------------------------- OUTPUTS ASSIGNATION ---------------------------------*/
 
+  assign o_comm_array_sent = r_comm_array_sent;
+	assign o_send            = r_send;
+  assign o_data            = r_data;
+  assign o_dc              = r_dc;
+  assign o_cs              = r_cs;
 
 endmodule
 `endif

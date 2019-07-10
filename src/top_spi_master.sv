@@ -1,32 +1,28 @@
+`ifndef TOP_SPI_MASTER_SV
+    `define TOP_SPI_MASTER_SV
 
-module top_spi_master(
-    input  clk, 
+module top_spi_master
+import pkg_ili9341::*;
+(
+    input  clk,
     input  rst,
 
-    input   miso, 
+    input   miso,
     input   init_btn,
 
     output  reset,
-    output  mosi, 
+    output  mosi,
     output  sclk,
     output  dc,
     output  cs
 );
-    wire w_send;
-    wire w_shift_ena;
-    wire w_done;
-    wire w_load;
-    wire w_shift_dis;
-    wire w_clk;
-    wire w_init_btn;
 
-    wire [7:0] w_data;
-
+  st_top_wires wires;
 
 /*    clk_divider CLK_DIV(
-        .rst        (rst),        
+        .rst        (rst),
         .i_clk      (clk),
-        
+
         .o_clk      (w_clk)
     );
 
@@ -38,44 +34,82 @@ module top_spi_master(
     );
 */
 
-    ili_init_ctrl ILI_INIT(
-        .clk       (clk),
-        .rst       (rst),
+    ili_ctrl ILI_CTRL(
+    	.clk               (clk),
+    	.rst               (rst),
 
-        .ena       (init_btn),
-        .sent      (w_done),
-        .shift_dis (w_shift_dis),
+    	.i_ena_btn         (init_btn),
+    	.i_resets_sent     (wires.resets_sent),
+    	.i_command_sent    (wires.comm_array_sent),
 
-        .cs        (cs),
-        .dc        (dc),
-        .reset     (reset),
-        .data      (w_data), 
-        .send      (w_send)
+    	.o_reset_ini_ena   (wires.reset_ini_ena),
+    	.o_send_comm_ena   (wires.send_comm_ena),
+    	.o_command         (wires.command)
     );
-    
-    spi_ctrl CTRL(
-        .clk       (clk),
-        .rst       (rst),
- 
-        .send      (w_send),
 
-        .shift_dis (w_shift_dis),
-        .shift_en  (w_shift_ena),
-        .done      (w_done),
-        .load      (w_load),
-        .sclk      (sclk)
+    reset_init RST_INIT(
+    	.clk               (clk),
+    	.rst               (rst),
+
+    	.i_reset_init_ena  (wires.reset_ini_ena),
+      .i_reset_sent      (wires.reset_sent),
+
+    	.o_reset_ena       (wires.reset_ena),
+    	.o_reset_val       (wires.reset_val),
+    	.o_resets_sent     (wires.resets_sent)
+    );
+
+    reset RST(
+    	.clk               (clk),
+    	.rst               (rst),
+
+    	.i_reset_ena       (wires.reset_ena),
+      .i_reset_val       (wires.reset_val),
+
+      .o_reset_sent      (wires.reset_sent),
+      .o_reset           (reset)
+    );
+
+    send_command SEND_COMM(
+    	.clk               (clk),
+    	.rst               (rst),
+
+    	.i_send_comm_ena   (wires.send_comm_ena),
+    	.i_command_sent    (wires.command_sent),
+      .i_command         (wires.command),
+      .i_shift_dis       (wires.shift_dis),
+
+    	.o_comm_array_sent (wires.comm_array_sent),
+    	.o_send            (wires.send),
+      .o_data            (wires.data),
+      .o_dc              (dc),
+      .o_cs              (cs)
+    );
+
+    spi_ctrl CTRL(
+        .clk             (clk),
+        .rst             (rst),
+
+        .send            (wires.send),
+
+        .shift_dis       (wires.shift_dis),
+        .shift_en        (wires.shift_en),
+        .done            (wires.command_sent),
+        .load            (wires.load),
+        .sclk            (sclk)
     );
 
     spi_shift SHIFT(
-        .clk      (clk), 
-        .rst      (rst), 
+        .clk            (clk),
+        .rst            (rst),
 
-        .shift_en (w_shift_ena), 
-        .load     (w_load), 
-        .miso     (miso), 
-        .data     (w_data), 
+        .shift_en       (wires.shift_en),
+        .load           (wires.load),
+        .miso           (miso),
+        .data           (wires.data),
 
-        .mosi     (mosi)
+        .mosi           (mosi)
     );
 
 endmodule
+`endif

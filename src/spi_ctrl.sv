@@ -1,5 +1,9 @@
+`ifndef SPI_CTRL_SV
+    `define SPI_CTRL_SV
 
-module spi_ctrl(
+module spi_ctrl
+import pkg_ili9341::*;
+(
     input  clk,
     input  rst,
 
@@ -12,14 +16,16 @@ module spi_ctrl(
     output logic sclk
 );
 
-    typedef enum logic [2:0] {INIT,LOAD,SHIFT,DONE} state_t;
+  /*------------------------------------- STATES -------------------------------------*/
 
+    typedef enum logic [2:0] {INIT,LOAD,SHIFT,DONE} state_t;
     state_t state;
+
+    /*----------------------------------- REGISTERS ------------------------------------*/
 
     logic [3:0] count   = 4'b0111;
     logic       r_sclk  = 1'b0;
     logic       clk_en;
-
 
     always @( * )begin
         if (clk_en)
@@ -30,7 +36,6 @@ module spi_ctrl(
 
     assign sclk = r_sclk;
 
-
     always @( posedge clk, negedge rst ) begin
         if(!rst)
             count <= 3'b111;
@@ -40,43 +45,41 @@ module spi_ctrl(
             count <= 3'b111;
     end
 
-
     always @(posedge clk, negedge rst) begin
 
         if (!rst) begin
-            state = INIT;
+            state <= INIT;
         end
         else
         case(state)
             INIT : begin
                 if(send)
-                    state = LOAD;
+                    state <= LOAD;
                 else
-                    state = state;
+                    state <= state;
             end
 
             LOAD : begin
-                state = SHIFT;
+                state <= SHIFT;
             end
 
             SHIFT : begin
                 if(count == 5'b0_0001)
-                    state = DONE;
+                    state <= DONE;
                 else
-                    state = state;
+                    state <= state;
             end
 
             DONE : begin
-                state = INIT;
+                state <= INIT;
             end
 
 
             default : begin
-                state = INIT;
+                state <= INIT;
             end
         endcase
     end
-
 
     always @(*) begin
 
@@ -99,7 +102,6 @@ module spi_ctrl(
                 clk_en    = 1'b0;
             end
 
-
             SHIFT : begin
                 shift_dis = 1'b0;
                 shift_en  = 1'b1;
@@ -118,7 +120,6 @@ module spi_ctrl(
                 clk_en    = 1'b1;
             end
 
-
             default : begin
                 shift_dis = 1'b0;
                 shift_en  = 1'b0;
@@ -130,6 +131,5 @@ module spi_ctrl(
         endcase
     end
 
-
-
 endmodule
+`endif
