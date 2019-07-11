@@ -5,7 +5,7 @@ package pkg_ili9341;
 
 		/*/*-------------------------------------------------------------------- PARAMETERS --------------------------------------------------------------------*/
 
-	localparam COMM_INIT = 47;
+	localparam COMM_INIT = 48;
 	localparam COMM_LOOP = 3;
 	localparam NO_DATA   = 8'b0000_0000;
 
@@ -41,8 +41,9 @@ package pkg_ili9341;
 
 						/* Frame Rate */
 						{LOW, LOW,  8'hB1}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h18}, {LOW, LOW,  8'hB6}, {LOW, HIGH, 8'h08}, {LOW, HIGH, 8'h82},
-						{LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},	{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C} // Start  Memory-Write
+						{LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},	{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C}, // Start  Memory-Write
 
+						{LOW, LOW,  8'hFF} // Ignore
 	};
 
 	/*----------------------------------------------------------------- LOOP COMMANDS ARRAY -----------------------------------------------------------------*/

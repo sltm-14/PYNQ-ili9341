@@ -27,7 +27,7 @@ import pkg_ili9341::*;
 
 	logic [CN_15-1:0] cnt_15        = MS15;
 	logic             r_reset       = HIGH;
-  logic             r_reset_sent = OFF;
+  logic             r_reset_sent  = OFF;
   logic             r_15_ena      = OFF;
 
   /*---------------------------------- WAIT COUNTER ----------------------------------*/
