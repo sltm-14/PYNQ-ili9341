@@ -6,7 +6,7 @@ package pkg_ili9341;
 		/*/*-------------------------------------------------------------------- PARAMETERS --------------------------------------------------------------------*/
 
 	localparam COMM_INIT = 48;
-	localparam COMM_LOOP = 3;
+	localparam COMM_LOOP = 4;
 	localparam NO_DATA   = 8'b0000_0000;
 
 	localparam HIGH      = 1'b1;
@@ -49,7 +49,9 @@ package pkg_ili9341;
 	/*----------------------------------------------------------------- LOOP COMMANDS ARRAY -----------------------------------------------------------------*/
 
 	logic [9:0] loop_commands [COMM_LOOP-1:0] = '{
-						{HIGH, HIGH, 8'hAA}, {HIGH, HIGH, 8'h00}, {HIGH, HIGH, 8'hAA}
+						{HIGH, HIGH, 8'hAA}, {HIGH, HIGH, 8'h00}, {HIGH, HIGH, 8'hAA},
+
+						{LOW, LOW,  8'hFF} // Ignore
 	};
 
 	/*------------------------------------------------------------------ TOP WIRES STRUCT -------------------------------------------------------------------*/
