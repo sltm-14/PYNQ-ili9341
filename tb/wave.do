@@ -78,7 +78,7 @@ add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_ena
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset_sent
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {397 ps} 0}
+WaveRestoreCursors {{Cursor 1} {2002 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -94,4 +94,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {361 ps} {513 ps}
+WaveRestoreZoom {1877 ps} {2093 ps}

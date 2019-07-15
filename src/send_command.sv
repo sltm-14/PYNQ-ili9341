@@ -155,9 +155,9 @@ import pkg_ili9341::*;
 
           r_comm_array_sent = LOW;
         	r_send            = HIGH;
-          r_data            = ( i_command == INI_COMM ) ? ini_commands[cnt_comm-1]    : loop_commands[cnt_comm-1];
-          r_dc              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm-1][8] : loop_commands[cnt_comm-1][8];
-        	r_cs              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm-1][9] : loop_commands[cnt_comm-1][9];
+          r_data            = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1]    : loop_commands[cnt_comm - 1];
+          r_dc              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
+        	r_cs              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
 			 	end
 
 			 	WAIT:begin
@@ -166,8 +166,8 @@ import pkg_ili9341::*;
           r_comm_array_sent = LOW;
         	r_send            = LOW;
           r_data            = NO_DATA;
-          r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm-1][8] : loop_commands[cnt_comm-1][8];
-        	r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm-1][9] : loop_commands[cnt_comm-1][9];
+          r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
+        	r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
 			 	end
 
         DONE:begin
