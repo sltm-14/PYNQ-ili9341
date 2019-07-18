@@ -3,7 +3,7 @@
 
 package pkg_ili9341;
 
-		/*/*-------------------------------------------------------------------- PARAMETERS --------------------------------------------------------------------*/
+	/*-------------------------------------------------------------------- PARAMETERS ----------------------------------------------------------------------*/
 
 	localparam COMM_INIT = 48;
 	localparam COMM_LOOP = 12;
@@ -26,9 +26,9 @@ package pkg_ili9341;
 
 	/*------------------------------------------------------------- ADDRESS SETCOMMANDS ARRAY ---------------------------------------------------------------*/
 
-	logic[9:0] address_set [COMM_ADDR-1:0] = '{
+	logic[18:0] address_set [COMM_ADDR-1:0] = '{
 
-						{LOW, LOW,  8'h2A},
+						{LOW,8'hFF, LOW, LOW,  8'h2A},
 						{LOW, HIGH, x1 >> 8},	{LOW, HIGH, x1},	{LOW, HIGH, x2 >> 8},	{LOW, HIGH, x2},
 						{LOW, LOW,  8'h2B},
 						{LOW, HIGH, y1 >> 8},	{LOW, HIGH, y1},	{LOW, HIGH, y2 >> 8},	{LOW, HIGH, y2},
@@ -41,7 +41,7 @@ package pkg_ili9341;
 
 	logic[9:0] ini_commands [COMM_INIT-1:0] = '{
 
-						/* Idle */  /* Memory Write */                                                                      /* Nop */
+						/* Idle */  /* Memory Write */
 						{LOW, LOW,  8'hCB}, {LOW, HIGH, 8'h39}, {LOW, HIGH, 8'h2C}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h34}, {LOW, HIGH, 8'h02},
 						{LOW, LOW,  8'hCF}, {LOW, HIGH, 8'h00},
 
@@ -60,9 +60,10 @@ package pkg_ili9341;
 
 						/* Frame Rate */
 						{LOW, LOW,  8'hB1}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h18}, {LOW, LOW,  8'hB6}, {LOW, HIGH, 8'h08}, {LOW, HIGH, 8'h82},
-						{LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},	{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C}, // Start  Memory-Write
+						{LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},	{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C},
 
-						{LOW, LOW,  8'hFF} // Ignore
+						/* Ignore */
+						{LOW, LOW,  8'hFF}
 	};
 
 	/*----------------------------------------------------------------- LOOP COMMANDS ARRAY -----------------------------------------------------------------*/
