@@ -1,8 +1,11 @@
 `ifndef SEND_COMMAND_SV
-    `define SEND_COMMAND_SV
+`define SEND_COMMAND_SV
+
+
+import pkg_loop::*;
 
 module send_command
-import pkg_ili9341::*;
+import pkg_ili9341::*; 
 #(
     parameter DW = 8
 )(
@@ -40,7 +43,7 @@ import pkg_ili9341::*;
 
 	logic [CN_8-1:0] cnt_8    = CYCL8;
 
-	logic          r_8_ena           = LOW;
+	logic          r_8_ena    = LOW;
 
   logic          r_comm_array_sent = LOW;
 	logic          r_send            = LOW;

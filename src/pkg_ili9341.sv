@@ -6,7 +6,6 @@ package pkg_ili9341;
 	/*-------------------------------------------------------------------- PARAMETERS ----------------------------------------------------------------------*/
 
 	localparam COMM_INIT = 48;
-	localparam COMM_LOOP = 12;
 	localparam COMM_ADDR = 12;
 	localparam NO_DATA   = 8'b0000_0000;
 
@@ -23,54 +22,6 @@ package pkg_ili9341;
 	logic [7:0] x2 = NO_DATA;
 	logic [7:0] y1 = NO_DATA;
 	logic [7:0] y2 = NO_DATA;
-
-	/*------------------------------------------------------------- ADDRESS SETCOMMANDS ARRAY ---------------------------------------------------------------*/
-
-	logic[18:0] address_set [COMM_ADDR-1:0] = '{
-
-						{LOW,8'hFF, LOW, LOW,  8'h2A},
-						{LOW, HIGH, x1 >> 8},	{LOW, HIGH, x1},	{LOW, HIGH, x2 >> 8},	{LOW, HIGH, x2},
-						{LOW, LOW,  8'h2B},
-						{LOW, HIGH, y1 >> 8},	{LOW, HIGH, y1},	{LOW, HIGH, y2 >> 8},	{LOW, HIGH, y2},
-						{LOW, LOW,  8'h2C},
-
-						{LOW, LOW,  8'hFF} // Ignore
-	};
-
-	/*----------------------------------------------------------------- INIT COMMANDS ARRAY -----------------------------------------------------------------*/
-
-	logic[9:0] ini_commands [COMM_INIT-1:0] = '{
-
-						/* Idle */  /* Memory Write */
-						{LOW, LOW,  8'hCB}, {LOW, HIGH, 8'h39}, {LOW, HIGH, 8'h2C}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h34}, {LOW, HIGH, 8'h02},
-						{LOW, LOW,  8'hCF}, {LOW, HIGH, 8'h00},
-
-						/* Power control */
-						{LOW, HIGH, 8'hC1}, {LOW, HIGH, 8'h30}, {LOW, LOW,  8'hE8}, {LOW, HIGH, 8'h85}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h78},
-						{LOW, LOW,  8'hEA}, {LOW, HIGH, 8'h00},	{LOW, HIGH, 8'h00}, {LOW, LOW,  8'hED}, {LOW, HIGH, 8'h64}, {LOW, HIGH, 8'h03},
-						{LOW, HIGH, 8'h12}, {LOW, HIGH, 8'h81}, {LOW, LOW,  8'hF7}, {LOW, HIGH, 8'h20},	{LOW, LOW,  8'hC0}, {LOW, HIGH, 8'h23},
-						{LOW, LOW,  8'hC1}, {LOW, HIGH, 8'h10},
-
-						/* VCOM */
-						{LOW, LOW,  8'hC5}, {LOW, HIGH, 8'h3E}, {LOW, HIGH, 8'h28}, {LOW, LOW,  8'hC7}, {LOW, HIGH, 8'h86}, {LOW, LOW,  8'h36},
-						{LOW, HIGH, 8'h48},
-
-						/* Memory Access Control */
-						{LOW, LOW,  8'h3A}, {LOW, HIGH, 8'h55},
-
-						/* Frame Rate */
-						{LOW, LOW,  8'hB1}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h18}, {LOW, LOW,  8'hB6}, {LOW, HIGH, 8'h08}, {LOW, HIGH, 8'h82},
-						{LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},	{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C},
-
-						/* Ignore */
-						{LOW, LOW,  8'hFF}
-	};
-
-	/*----------------------------------------------------------------- LOOP COMMANDS ARRAY -----------------------------------------------------------------*/
-
-	logic [9:0] loop_commands [$:0] = {
-					{LOW, HIGH,  8'hFF}, address_set, {LOW, LOW,  8'hFF}
-	};
 
 	/*------------------------------------------------------------------ TOP WIRES STRUCT -------------------------------------------------------------------*/
 
@@ -91,6 +42,43 @@ package pkg_ili9341;
 			logic       load;
 			logic [7:0] data;
 	} st_top_wires;
+
+
+	/*----------------------------------------------------------------- INIT COMMANDS ARRAY -----------------------------------------------------------------*/
+
+	logic[9:0] ini_commands [COMM_INIT-1:0] = '{
+
+  			/* Idle */  /* Memory Write */
+  			{LOW, LOW,  8'hCB}, {LOW, HIGH, 8'h39}, {LOW, HIGH, 8'h2C}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h34}, {LOW, HIGH, 8'h02},
+  			{LOW, LOW,  8'hCF}, {LOW, HIGH, 8'h00},
+
+  			/* Power control */
+  			{LOW, HIGH, 8'hC1}, {LOW, HIGH, 8'h30}, {LOW, LOW,  8'hE8}, {LOW, HIGH, 8'h85}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h78},
+  			{LOW, LOW,  8'hEA}, {LOW, HIGH, 8'h00},	{LOW, HIGH, 8'h00}, {LOW, LOW,  8'hED}, {LOW, HIGH, 8'h64}, {LOW, HIGH, 8'h03},
+  			{LOW, HIGH, 8'h12}, {LOW, HIGH, 8'h81}, {LOW, LOW,  8'hF7}, {LOW, HIGH, 8'h20},	{LOW, LOW,  8'hC0}, {LOW, HIGH, 8'h23},
+  			{LOW, LOW,  8'hC1}, {LOW, HIGH, 8'h10},
+
+  						/* VCOM */
+  			{LOW, LOW,  8'hC5}, {LOW, HIGH, 8'h3E}, {LOW, HIGH, 8'h28}, {LOW, LOW,  8'hC7}, {LOW, HIGH, 8'h86}, {LOW, LOW,  8'h36},
+  			{LOW, HIGH, 8'h48},
+
+  			/* Memory Access Control */
+  			{LOW, LOW,  8'h3A}, {LOW, HIGH, 8'h55},
+
+  			/* Frame Rate */
+  			{LOW, LOW,  8'hB1}, {LOW, HIGH, 8'h00}, {LOW, HIGH, 8'h18}, {LOW, LOW,  8'hB6}, {LOW, HIGH, 8'h08}, {LOW, HIGH, 8'h82},
+  			{LOW, HIGH, 8'h27}, {LOW, LOW,  8'h11},	{LOW, HIGH, 8'h29}, {LOW, LOW,  8'h2C},
+
+  			/* Ignore */
+  			{LOW, LOW,  8'hFF}
+	};
+
+
+
+
+  	/*----------------------------------------------------------------- LOOP COMMANDS ARRAY -----------------------------------------------------------------*/
+
+
 
 endpackage
 `endif

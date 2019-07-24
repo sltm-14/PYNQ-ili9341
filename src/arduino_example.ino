@@ -44,6 +44,7 @@ void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2
   Lcd_Write_Data(y1);
   Lcd_Write_Data(y2>>8);
   Lcd_Write_Data(y2);
+
   Lcd_Write_Com(0x2c);
 }
 
