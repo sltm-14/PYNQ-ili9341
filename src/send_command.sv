@@ -154,43 +154,43 @@ import pkg_ili9341::*;
 			 	end
 
 			 	COMMAND:begin
-          r_8_ena           = LOW;
-
-          r_comm_array_sent = LOW;
-        	r_send            = HIGH;
-          r_data            = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1]    : loop_commands[cnt_comm - 1];
-          r_dc              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
-        	r_cs              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
+                    r_8_ena           = LOW;
+                    
+                    r_comm_array_sent = LOW;
+                    r_send            = HIGH;
+                    r_data            = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1]    : loop_commands[cnt_comm - 1];
+                    r_dc              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
+                    r_cs              = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
 			 	end
 
 			 	WAIT:begin
-          r_8_ena           = HIGH;
-
-          r_comm_array_sent = LOW;
-        	r_send            = LOW;
-          r_data            = NO_DATA;
-          r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
-        	r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
+                    r_8_ena           = HIGH;
+                    
+                    r_comm_array_sent = LOW;
+                    r_send            = LOW;
+                    r_data            = NO_DATA;
+                    r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
+                    r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
 			 	end
 
         DONE:begin
-          r_8_ena           = LOW;
-
-          r_comm_array_sent = HIGH;
-        	r_send            = LOW;
-          r_data            = NO_DATA;
-        	r_dc              = HIGH;
-        	r_cs              = HIGH;
+            r_8_ena           = LOW;
+            
+            r_comm_array_sent = HIGH;
+            r_send            = LOW;
+            r_data            = NO_DATA;
+            r_dc              = HIGH;
+            r_cs              = HIGH;
         end
 
 			 	default: begin
-          r_8_ena           = LOW;
-
-          r_comm_array_sent = LOW;
-        	r_send            = LOW;
-          r_data            = NO_DATA;
-          r_dc              = HIGH;
-        	r_cs              = HIGH;
+                r_8_ena           = LOW;
+                
+                r_comm_array_sent = LOW;
+                r_send            = LOW;
+                r_data            = NO_DATA;
+                r_dc              = HIGH;
+                r_cs              = HIGH;
 			 	end
 
 			endcase
