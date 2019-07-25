@@ -1,11 +1,9 @@
 `ifndef SEND_COMMAND_SV
 `define SEND_COMMAND_SV
 
-
-import pkg_loop::*;
-
 module send_command
-import pkg_ili9341::*; 
+import pkg_ili9341::*,
+import pkg_loop::*;
 #(
     parameter DW = 8
 )(
