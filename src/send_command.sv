@@ -1,25 +1,27 @@
 `ifndef SEND_COMMAND_SV
 `define SEND_COMMAND_SV
 
-module send_command
-import pkg_ili9341::*,
 import pkg_loop::*;
+
+module send_command
+import pkg_ili9341::*;
+
 #(
     parameter DW = 8
 )(
-	input  clk,
-	input  rst,
-
-	input           i_send_comm_ena,
-	input           i_command_sent,
-  input           i_command,
-  input           i_shift_dis,
-
-	output          o_comm_array_sent,
-	output          o_send,
-  output [DW-1:0] o_data,
-  output          o_dc,
-  output          o_cs
+    input  clk,
+    input  rst,
+    
+    input           i_send_comm_ena,
+    input           i_command_sent,
+    input           i_command,
+    input           i_shift_dis,
+    
+    output          o_comm_array_sent,
+    output          o_send,
+    output [DW-1:0] o_data,
+    output          o_dc,
+    output          o_cs
 );
 
   /*------------------------------------- STATES -------------------------------------*/
@@ -37,17 +39,17 @@ import pkg_loop::*;
 
   /*----------------------------------- REGISTERS ------------------------------------*/
 
-	logic [CN_C-1:0] cnt_comm = COMM_INIT - 1'b1;
-
-	logic [CN_8-1:0] cnt_8    = CYCL8;
-
-	logic          r_8_ena    = LOW;
-
-  logic          r_comm_array_sent = LOW;
-	logic          r_send            = LOW;
-  logic [DW-1:0] r_data            = NO_DATA;
-	logic          r_cs              = HIGH;
-	logic          r_dc              = HIGH;
+    logic [CN_C-1:0] cnt_comm = COMM_INIT - 1'b1;
+    
+    logic [CN_8-1:0] cnt_8    = CYCL8;
+    
+    logic          r_8_ena    = LOW;
+    
+    logic          r_comm_array_sent = LOW;
+    logic          r_send            = LOW;
+    logic [DW-1:0] r_data            = NO_DATA;
+    logic          r_cs              = HIGH;
+    logic          r_dc              = HIGH;
 
   /*------------------------------ INIT COMMAND COUNTER ------------------------------*/
 
@@ -128,27 +130,27 @@ import pkg_loop::*;
 
   /*---------------------------------- FSM OUTPUTS -----------------------------------*/
 
-	always @( * )begin
-		if (!rst) begin
-      r_8_ena           = LOW;
-
-      r_comm_array_sent = LOW;
-    	r_send            = LOW;
-      r_data            = NO_DATA;
-    	r_dc              = HIGH;
-    	r_cs              = HIGH;
-		end
+    always @( * )begin
+        if (!rst) begin
+            r_8_ena           = LOW;
+            
+            r_comm_array_sent = LOW;
+            r_send            = LOW;
+            r_data            = NO_DATA;
+            r_dc              = HIGH;
+            r_cs              = HIGH;
+        end
 
 		else begin
 			case(state)
 			 	IDLE:begin
-          r_8_ena           = LOW;
-
-          r_comm_array_sent = LOW;
-        	r_send            = LOW;
-          r_data            = NO_DATA;
-        	r_dc              = HIGH;
-        	r_cs              = HIGH;
+                    r_8_ena           = LOW;
+                    
+                    r_comm_array_sent = LOW;
+                    r_send            = LOW;
+                    r_data            = NO_DATA;
+                    r_dc              = HIGH;
+                    r_cs              = HIGH;
 			 	end
 
 			 	COMMAND:begin
