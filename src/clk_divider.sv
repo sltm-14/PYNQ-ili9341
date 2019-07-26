@@ -1,22 +1,22 @@
 `ifndef CLK_DIVIDER_SV
     `define CLK_DIVIDER_SV
-    
+
 module clk_divider
 #(
-	parameter FRECUENCY_IN  = 125000000,
-	parameter FRECUENCY_OUT =  10000000,
+	parameter FRECUENCY_IN  = 125_000_000,
+	parameter FRECUENCY_OUT =   4_000_000,
 
 	parameter COUNT_LENGTH  = $clog2(FRECUENCY_IN)
 )
 (
 	// Input signals
-	input rst, 
+	input rst,
 	input i_clk,
-	
+
 	// Output signal
 	output o_clk
 );
-	
+
 	logic [COUNT_LENGTH-1:0]counter = 0; // Frequency counter
 	logic l_clk;
 
@@ -42,6 +42,6 @@ module clk_divider
 	end
 
 	assign o_clk = l_clk;
-	
+
 endmodule
 `endif

@@ -19,23 +19,23 @@ import pkg_ili9341::*;
 
   st_top_wires wires;
 
-/*    clk_divider CLK_DIV(
+   clk_divider CLK_DIV(
         .rst        (rst),
         .i_clk      (clk),
 
         .o_clk      (w_clk)
     );
 
-    debounce_better_version DEBOUN(
-        .pb_1       (init_btn),
-        .clk        (w_clk),
+    // debounce_better_version DEBOUN(
+    //     .pb_1       (init_btn),
+    //     .clk        (w_clk),
+    //
+    //     .pb_out     (w_init_btn)
+    // );
 
-        .pb_out     (w_init_btn)
-    );
-*/
 
     ili_ctrl ILI_CTRL(
-    	.clk               (clk),
+    	.clk               (w_clk),
     	.rst               (rst),
 
     	.i_ena_btn         (init_btn),
@@ -48,7 +48,7 @@ import pkg_ili9341::*;
     );
 
     reset_init RST_INIT(
-    	.clk               (clk),
+    	.clk               (w_clk),
     	.rst               (rst),
 
     	.i_reset_init_ena  (wires.reset_ini_ena),
@@ -60,7 +60,7 @@ import pkg_ili9341::*;
     );
 
     reset RST(
-    	.clk               (clk),
+    	.clk               (w_clk),
     	.rst               (rst),
 
     	.i_reset_ena       (wires.reset_ena),
@@ -71,7 +71,7 @@ import pkg_ili9341::*;
     );
 
     send_command SEND_COMM(
-    	.clk               (clk),
+    	.clk               (w_clk),
     	.rst               (rst),
 
     	.i_send_comm_ena   (wires.send_comm_ena),
@@ -87,7 +87,7 @@ import pkg_ili9341::*;
     );
 
     spi_ctrl CTRL(
-        .clk             (clk),
+        .clk             (w_clk),
         .rst             (rst),
 
         .send            (wires.send),
@@ -100,7 +100,7 @@ import pkg_ili9341::*;
     );
 
     spi_shift SHIFT(
-        .clk            (clk),
+        .clk            (w_clk),
         .rst            (rst),
 
         .shift_en       (wires.shift_en),
