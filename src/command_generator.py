@@ -17,7 +17,7 @@ def address_set(x1, y1,x2,y2):
     {LOW, HIGH, ",ItH(x1 >> 8),"}, {LOW, HIGH, ",ItH(x1),"}, {LOW, HIGH, ",ItH(x2 >> 8),"}, {LOW, HIGH, ",ItH(x2),"},\n\
     {LOW, LOW,  8'h2B},\n\
     {LOW, HIGH, ",ItH(y1 >> 8),"}, {LOW, HIGH, ",ItH(y1),"}, {LOW, HIGH, ",ItH(y2 >> 8),"}, {LOW, HIGH, ",ItH(y2),"},\n\
-    {LOW, LOW,  8'h2C},\n\n"]
+    {LOW, LOW,  8'h2C},\n\n    "]
     f.writelines(add_set)
 
 
@@ -29,7 +29,7 @@ def Lcd_Write_Com(VH):
 
 def Lcd_Write_Data(VH):
     write_comm = ["\
-    {LOW, HIGH, ",ItH(VH),"},  "]
+{LOW, HIGH, ",ItH(VH),"},  "]
     f.writelines(write_comm)
 
 
@@ -39,8 +39,8 @@ def LCD_Clear(j):
         for x in range(0,320):
             Lcd_Write_Data(j>>8)
             Lcd_Write_Data(j-((j>>8)<<8))
-            if ( x % 10 ) == 0:
-                f.writelines("\n")
+            if ( x % 4 ) == 0:
+                f.writelines("\n    ")
 
 
 f = open("pkg_loop.sv", "w+")
@@ -51,7 +51,7 @@ f.write("package pkg_loop;\n")
 f.write("\n")
 f.write("  /*-------------------------------------------------------------------- PARAMETERS ----------------------------------------------------------------------*/\n")
 f.write("\n")
-f.write("  localparam COMM_LOOP = 11;\n")
+f.write("  localparam COMM_LOOP = 153612;\n")
 f.write("\n")
 f.write("  localparam HIGH      = 1'b1;\n")
 f.write("  localparam LOW       = 1'b0;\n")

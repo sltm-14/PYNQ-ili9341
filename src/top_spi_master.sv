@@ -85,6 +85,8 @@ import pkg_ili9341::*;
         .clk             (wires.clk),
         .rst             (rst),
 
+        .send            (wires.send),
+
         .shift_dis       (wires.shift_dis),
         .shift_en        (wires.shift_en),
         .done            (wires.command_sent),
