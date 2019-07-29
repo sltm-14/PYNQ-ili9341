@@ -30,102 +30,105 @@ import pkg_ili9341::*;
 
   /*---------------------------------- FSM STATES ------------------------------------*/
 
-	always @( posedge clk, negedge rst )begin
-		if (!rst) begin
-			state <= IDLE;
-		end
+    always @( posedge clk, negedge rst )begin
+        if (!rst) begin
+            state <= IDLE;
+        end
 
-		else begin
-			case(state)
-			 	IDLE:begin
-			 		if (i_ena_btn) begin
-			 			state <= RESET;
-			 		end
-			 		else begin
-			 			state <= IDLE;
-			 		end
-			 	end
+        else begin
+            case(state)
 
-			 	RESET:begin
-          if (i_resets_sent) begin
-			 		    state <= INIT;
-          end
-          else begin
-              state <= RESET;
-          end
-			 	end
+                IDLE:begin
+                    if (i_ena_btn) begin
+                        state <= RESET;
+                    end
+                    else begin
+                        state <= IDLE;
+                    end
+                end
 
-			 	INIT:begin
-          if (i_command_sent)begin
-				      state <= LOOP;
-          end
-          else begin
-              state <= INIT;
-          end
-			 	end
+                RESET:begin
+                    if (i_resets_sent) begin
+                        state <= INIT;
+                    end
+                    else begin
+                        state <= RESET;
+                    end
+                end
 
-			 	LOOP:begin
-				      state <= LOOP;
-			 	end
+                INIT:begin
+                    if (i_command_sent)begin
+                        state <= LOOP;
+                    end
+                    else begin
+                        state <= INIT;
+                    end
+                end
 
-			 	default: begin
-			 	   state <= IDLE;
-			 	end
+                LOOP:begin
+                    state <= LOOP;
+                end
 
-			endcase
-		end
-	end
+                default: begin
+                    state <= IDLE;
+                end
+
+            endcase
+        end
+    end
 
   /*---------------------------------- FSM OUTPUTS -----------------------------------*/
 
-	always @( * )begin
-		if (!rst) begin
-      r_send_comm_ena = OFF;
-      r_reset_ini_ena = OFF;
-      r_command       = OFF;
-		end
+    always @( * )begin
+        if (!rst) begin
+            r_send_comm_ena = OFF;
+            r_reset_ini_ena = OFF;
+            r_command       = OFF;
+        end
 
-		else begin
-			case(state)
-			 	IDLE:begin
-          r_send_comm_ena = OFF;
-          r_reset_ini_ena = OFF;
-          r_command       = OFF;
-			 	end
+        else begin
 
-			 	RESET:begin
-          r_send_comm_ena = OFF;
-          r_reset_ini_ena = ON;
-          r_command       = OFF;
-			 	end
+            case(state)
 
-			 	INIT:begin
-          r_send_comm_ena = ON;
-          r_reset_ini_ena = OFF;
-          r_command       = INI_COMM;
-			 	end
+                IDLE:begin
+                    r_send_comm_ena = OFF;
+                    r_reset_ini_ena = OFF;
+                    r_command       = OFF;
+                end
 
-			 	LOOP:begin
-          r_send_comm_ena = ON;
-          r_reset_ini_ena = OFF;
-          r_command       = LOOP_COMM;
-			 	end
+                RESET:begin
+                    r_send_comm_ena = OFF;
+                    r_reset_ini_ena = ON;
+                    r_command       = OFF;
+                end
 
-			 	default: begin
-          r_send_comm_ena = OFF;
-          r_reset_ini_ena = OFF;
-          r_command       = OFF;
-			 	end
+                INIT:begin
+                    r_send_comm_ena = ON;
+                    r_reset_ini_ena = OFF;
+                    r_command       = INI_COMM;
+                end
 
-			endcase
-		end
-	end
+                LOOP:begin
+                    r_send_comm_ena = ON;
+                    r_reset_ini_ena = OFF;
+                    r_command       = LOOP_COMM;
+                end
+
+                default: begin
+                    r_send_comm_ena = OFF;
+                    r_reset_ini_ena = OFF;
+                    r_command       = OFF;
+                end
+
+            endcase
+        end
+    end
 
   /*-------------------------------- OUTPUTS ASSIGNATION ---------------------------------*/
 
-  assign o_send_comm_ena = r_send_comm_ena;
-  assign o_reset_ini_ena = r_reset_ini_ena;
-  assign o_command       = r_command;
+    assign o_send_comm_ena = r_send_comm_ena;
+    assign o_reset_ini_ena = r_reset_ini_ena;
+    assign o_command       = r_command;
 
 endmodule
 `endif

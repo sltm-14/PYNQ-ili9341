@@ -11,12 +11,12 @@ import pkg_ili9341::*;
 )(
     input  clk,
     input  rst,
-    
+
     input           i_send_comm_ena,
     input           i_command_sent,
     input           i_command,
     input           i_shift_dis,
-    
+
     output          o_comm_array_sent,
     output          o_send,
     output [DW-1:0] o_data,
@@ -39,12 +39,11 @@ import pkg_ili9341::*;
 
   /*----------------------------------- REGISTERS ------------------------------------*/
 
-    logic [CN_C-1:0] cnt_comm = COMM_INIT - 1'b1;
-    
-    logic [CN_8-1:0] cnt_8    = CYCL8;
-    
-    logic          r_8_ena    = LOW;
-    
+    logic [CN_C-1:0] cnt_comm        = COMM_INIT - 1'b1;
+    logic [CN_8-1:0] cnt_8           = CYCL8;
+
+    logic          r_8_ena           = LOW;
+
     logic          r_comm_array_sent = LOW;
     logic          r_send            = LOW;
     logic [DW-1:0] r_data            = NO_DATA;
@@ -53,27 +52,27 @@ import pkg_ili9341::*;
 
   /*------------------------------ INIT COMMAND COUNTER ------------------------------*/
 
-  always @( posedge clk, negedge rst ) begin
-    if(!rst)
-        cnt_comm <= COMM_INIT ;
-    else if ( i_command_sent )
-        cnt_comm <= cnt_comm - 1;
-    else if (DONE == state)
-      cnt_comm <= COMM_LOOP;
-    else
-        cnt_comm <= cnt_comm;
-  end
+    always @( posedge clk, negedge rst ) begin
+        if(!rst)
+            cnt_comm <= COMM_INIT ;
+        else if ( i_command_sent )
+            cnt_comm <= cnt_comm - 1;
+        else if (DONE == state)
+            cnt_comm <= COMM_LOOP;
+        else
+            cnt_comm <= cnt_comm;
+    end
 
   /*---------------------------------- WAIT COUNTER ----------------------------------*/
 
-  always @( posedge clk, negedge rst ) begin
-    if(!rst)
-      cnt_8 <= CYCL8;
-    else if ( r_8_ena )
-      cnt_8 <= cnt_8 - 1;
-    else
-      cnt_8 <= CYCL8;
-  end
+    always @( posedge clk, negedge rst ) begin
+        if(!rst)
+            cnt_8 <= CYCL8;
+        else if ( r_8_ena )
+            cnt_8 <= cnt_8 - 1;
+        else
+            cnt_8 <= CYCL8;
+    end
 
   /*---------------------------------- FSM STATES ------------------------------------*/
 
@@ -104,21 +103,21 @@ import pkg_ili9341::*;
 
 			 	WAIT:begin
 					if ( cnt_comm < COMM_INIT  && !cnt_8 ) begin
-            if ( cnt_comm == 1 ) begin
-  			 			state <= DONE;
-            end
-            else begin
-			 			  state <= COMMAND;
-            end
+                        if ( cnt_comm == 1 ) begin
+              			 	state <= DONE;
+                        end
+                        else begin
+        			 		state <= COMMAND;
+                        end
 			 		end
 			 		else begin
 			 			state <= WAIT;
 			 		end
 			 	end
 
-        DONE:begin
-          state <= IDLE;
-        end
+                DONE:begin
+                  state <= IDLE;
+                end
 
 			 	default: begin
 			 	   state <= IDLE;
@@ -133,7 +132,7 @@ import pkg_ili9341::*;
     always @( * )begin
         if (!rst) begin
             r_8_ena           = LOW;
-            
+
             r_comm_array_sent = LOW;
             r_send            = LOW;
             r_data            = NO_DATA;
@@ -145,7 +144,7 @@ import pkg_ili9341::*;
 			case(state)
 			 	IDLE:begin
                     r_8_ena           = LOW;
-                    
+
                     r_comm_array_sent = LOW;
                     r_send            = LOW;
                     r_data            = NO_DATA;
@@ -155,7 +154,7 @@ import pkg_ili9341::*;
 
 			 	COMMAND:begin
                     r_8_ena           = LOW;
-                    
+
                     r_comm_array_sent = LOW;
                     r_send            = HIGH;
                     r_data            = ( i_command == INI_COMM ) ? ini_commands[cnt_comm - 1]    : loop_commands[cnt_comm - 1];
@@ -165,7 +164,7 @@ import pkg_ili9341::*;
 
 			 	WAIT:begin
                     r_8_ena           = HIGH;
-                    
+
                     r_comm_array_sent = LOW;
                     r_send            = LOW;
                     r_data            = NO_DATA;
@@ -173,24 +172,24 @@ import pkg_ili9341::*;
                     r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
 			 	end
 
-        DONE:begin
-            r_8_ena           = LOW;
-            
-            r_comm_array_sent = HIGH;
-            r_send            = LOW;
-            r_data            = NO_DATA;
-            r_dc              = HIGH;
-            r_cs              = HIGH;
-        end
+                DONE:begin
+                    r_8_ena           = LOW;
+
+                    r_comm_array_sent = HIGH;
+                    r_send            = LOW;
+                    r_data            = NO_DATA;
+                    r_dc              = HIGH;
+                    r_cs              = HIGH;
+                end
 
 			 	default: begin
-                r_8_ena           = LOW;
-                
-                r_comm_array_sent = LOW;
-                r_send            = LOW;
-                r_data            = NO_DATA;
-                r_dc              = HIGH;
-                r_cs              = HIGH;
+                    r_8_ena           = LOW;
+
+                    r_comm_array_sent = LOW;
+                    r_send            = LOW;
+                    r_data            = NO_DATA;
+                    r_dc              = HIGH;
+                    r_cs              = HIGH;
 			 	end
 
 			endcase
@@ -199,11 +198,11 @@ import pkg_ili9341::*;
 
   /*-------------------------------- OUTPUTS ASSIGNATION ---------------------------------*/
 
-  assign o_comm_array_sent = r_comm_array_sent;
-	assign o_send            = r_send;
-  assign o_data            = r_data;
-  assign o_dc              = r_dc;
-  assign o_cs              = r_cs;
+    assign o_comm_array_sent = r_comm_array_sent;
+    assign o_send            = r_send;
+    assign o_data            = r_data;
+    assign o_dc              = r_dc;
+    assign o_cs              = r_cs;
 
 endmodule
 `endif

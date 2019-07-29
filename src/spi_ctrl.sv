@@ -50,35 +50,37 @@ import pkg_ili9341::*;
         if (!rst) begin
             state <= INIT;
         end
-        else
-        case(state)
-            INIT : begin
-                if(send)
-                    state <= LOAD;
-                else
-                    state <= state;
-            end
-
-            LOAD : begin
-                state <= SHIFT;
-            end
-
-            SHIFT : begin
-                if(count == 5'b0_0001)
-                    state <= DONE;
-                else
-                    state <= state;
-            end
-
-            DONE : begin
-                state <= INIT;
-            end
-
-
-            default : begin
-                state <= INIT;
-            end
-        endcase
+        
+        else begin
+            case(state)
+                INIT : begin
+                    if(send)
+                        state <= LOAD;
+                    else
+                        state <= state;
+                end
+    
+                LOAD : begin
+                    state <= SHIFT;
+                end
+    
+                SHIFT : begin
+                    if(count == 5'b0_0001)
+                        state <= DONE;
+                    else
+                        state <= state;
+                end
+    
+                DONE : begin
+                    state <= INIT;
+                end
+    
+    
+                default : begin
+                    state <= INIT;
+                end
+            endcase
+        end
     end
 
     always @(*) begin

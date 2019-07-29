@@ -60,7 +60,7 @@ f.write("  /*----------------------------------------------------------------- L
 f.write("\n")
 f.write("  logic [9:0] loop_commands [COMM_LOOP-1:0] = {\n")
 
-LCD_Clear(0x3025)
+LCD_Clear(0xB403)
 Lcd_Write_Data(0)
 
 f.write("\n")

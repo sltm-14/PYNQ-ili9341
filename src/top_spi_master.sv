@@ -19,14 +19,14 @@ import pkg_ili9341::*;
 
   st_top_wires wires;
 
-/*
+
     clk_divider CLK_DIV(
         .rst        (rst),
         .i_clk      (clk),
 
         .o_clk      (w_clk)
     );
-*/
+
 
     debounce_better_version DEBOUN(
         .pb_1              (init_btn),

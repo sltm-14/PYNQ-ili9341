@@ -1,17 +1,17 @@
 `ifndef RESET_SV
-    `define RESET_SV
+`define RESET_SV
 
 module reset
 import pkg_ili9341::*;
 (
-	input  clk,
-	input  rst,
+    input  clk,
+    input  rst,
 
-	input  i_reset_ena,
-  input  i_reset_val,
+    input  i_reset_ena,
+    input  i_reset_val,
 
-  output o_reset_sent,
-  output o_reset
+    output o_reset_sent,
+    output o_reset
 );
   /*------------------------------------- STATES -------------------------------------*/
 
@@ -25,108 +25,109 @@ import pkg_ili9341::*;
 
   /*----------------------------------- REGISTERS ------------------------------------*/
 
-	logic [CN_15-1:0] cnt_15        = MS15;
-	logic             r_reset       = HIGH;
-  logic             r_reset_sent  = OFF;
-  logic             r_15_ena      = OFF;
+    logic [CN_15-1:0] cnt_15        = MS15;
+    logic             r_reset       = HIGH;
+    logic             r_reset_sent  = OFF;
+    logic             r_15_ena      = OFF;
 
   /*---------------------------------- WAIT COUNTER ----------------------------------*/
 
-  always @( posedge clk, negedge rst ) begin
-    if(!rst)
-      cnt_15 <= MS15;
-    else if (r_15_ena)
-      cnt_15 <= cnt_15 - 1;
-    else
-      cnt_15 <= MS15;
-  end
+    always @( posedge clk, negedge rst ) begin
+        if(!rst)
+            cnt_15 <= MS15;
+        else if (r_15_ena)
+            cnt_15 <= cnt_15 - 1;
+        else
+            cnt_15 <= MS15;
+    end
 
   /*---------------------------------- FSM STATES ------------------------------------*/
 
-	always @( posedge clk, negedge rst )begin
-		if (!rst) begin
-			state <= IDLE;
-		end
-
-		else begin
-			case(state)
-			 	IDLE:begin
-			 		if (i_reset_ena) begin
-			 			state <= RESET;
-			 		end
-			 		else begin
-			 			state <= IDLE;
-			 		end
-			 	end
-
-			 	RESET:begin
-			 		state <= WAIT;
-			 	end
-
-			 	WAIT:begin
-			 		if ( !cnt_15 ) begin
-			 			state <= DONE;
-			 		end
-			 		else begin
-			 			state <= WAIT;
-			 		end
-			 	end
-
-        DONE: begin
-          state <= IDLE;
+    always @( posedge clk, negedge rst )begin
+        if (!rst) begin
+            state <= IDLE;
         end
 
-        default: begin
-          state <= IDLE;
-        end
+        else begin
+            case(state)
+                IDLE:begin
+                if (i_reset_ena) begin
+                    state <= RESET;
+                end
+                else begin
+                    state <= IDLE;
+                end
+            end
 
-			endcase
-		end
-	end
+            RESET:begin
+                state <= WAIT;
+            end
+
+            WAIT:begin
+                if ( !cnt_15 ) begin
+                    state <= DONE;
+                end
+                else begin
+                    state <= WAIT;
+                end
+            end
+
+            DONE: begin
+                state <= IDLE;
+            end
+
+            default: begin
+                state <= IDLE;
+            end
+
+            endcase
+        end
+    end
 
   /*---------------------------------- FSM OUTPUTS -----------------------------------*/
 
-	always @( * )begin
-		if (!rst) begin
-      r_15_ena     = OFF;
+    always @( * )begin
+        if (!rst) begin
+            r_15_ena     = OFF;
 
-      r_reset_sent = LOW;
-      r_reset      = HIGH;
-		end
-
-		else begin
-			case(state)
-			 	IDLE:begin
-          r_15_ena     = OFF;
-
-          r_reset_sent = LOW;
-					r_reset      = HIGH;
-			 	end
-
-			 	RESET:begin
-          r_15_ena     = OFF;
-
-          r_reset_sent = LOW;
-					r_reset      = i_reset_val;
-			 	end
-
-			 	WAIT:begin
-					r_15_ena     = ON;
-
-          r_reset_sent = LOW;
-          r_reset      = r_reset;
-			 	end
-
-        DONE: begin
-          r_15_ena     = OFF;
-
-          r_reset_sent = HIGH;
-          r_reset      = HIGH;
+            r_reset_sent = LOW;
+            r_reset      = HIGH;
         end
 
-			endcase
-		end
-	end
+        else begin
+            case(state)
+
+                IDLE:begin
+                    r_15_ena     = OFF;
+
+                    r_reset_sent = LOW;
+                    r_reset      = HIGH;
+                end
+
+                RESET:begin
+                    r_15_ena     = OFF;
+
+                    r_reset_sent = LOW;
+                    r_reset      = i_reset_val;
+                end
+
+                WAIT:begin
+                    r_15_ena     = ON;
+
+                    r_reset_sent = LOW;
+                    r_reset      = r_reset;
+                end
+
+                DONE: begin
+                    r_15_ena     = OFF;
+
+                    r_reset_sent = HIGH;
+                    r_reset      = HIGH;
+                end
+
+            endcase
+        end
+    end
 
   /*-------------------------------- OUTPUTS ASSIGNATION ---------------------------------*/
 
