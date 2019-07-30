@@ -20,7 +20,7 @@ Z4 OV;L;10.1d;51
 r1
 !s85 0
 31
-Z5 !s108 1564508696.149000
+Z5 !s108 1564510507.715000
 Z6 !s107 tb_spi_master.sv|../src/top_spi_master.sv|../src/spi_shift.sv|../src/spi_ctrl.sv|../src/send_command.sv|../src/reset.sv|../src/reset_init.sv|../src/ili_ctrl.sv|../src/debouncer.sv|../src/clk_divider.sv|../src/pkg_loop.sv|../src/pkg_ili9341.sv|
 Z7 !s90 -reportprogress|300|-f|files.f|
 !s101 -O0
@@ -160,13 +160,13 @@ vreset
 R1
 R12
 !i10b 1
-!s100 3cz6oK_ACjFK<EMFHGPdR1
-I`;QmY=TCn=K?S82Z>P;@E1
+!s100 H<SV@KAQ2d=jCNP9KI>dC1
+IZ2EM4cbY1<NdQRY5nCgcb3
 V0^`O8cZ:_P3]zHF9`6lYT0
 !s105 reset_sv_unit
 S1
 R2
-R3
+w1564510498
 8../src/reset.sv
 F../src/reset.sv
 L0 4
@@ -205,21 +205,21 @@ o-O0
 vsend_command
 R1
 R12
-DXx4 work 20 send_command_sv_unit 0 22 KB=bL3lOPRQ^K1X=e^DA90
+DXx4 work 20 send_command_sv_unit 0 22 ^WEc@Z_^k92Th^W_@6njm0
 DXx4 work 8 pkg_loop 0 22 `SSG^A@c@eAeRXY>7A_lD2
-V9_>fFIa=ObBz[OF0kdQ1R2
+V<GA@AkT?CF39oFWTKI^VF2
 r1
 !s85 0
 31
 !i10b 1
-!s100 CXPh4AgS;mMf[DXn0`SZk2
-ICV;2oadK^_`RU`9PBHz<C3
+!s100 il>3P_NKkE=Z8P?3C=Odo1
+IWa7H5H2`20<OB?NFKoLXC1
 !s105 send_command_sv_unit
 S1
 R2
-R3
-Z13 8../src/send_command.sv
-Z14 F../src/send_command.sv
+Z13 w1564509528
+Z14 8../src/send_command.sv
+Z15 F../src/send_command.sv
 L0 6
 R4
 R5
@@ -230,19 +230,19 @@ o-O0
 Xsend_command_sv_unit
 R1
 R12
-VKB=bL3lOPRQ^K1X=e^DA90
+V^WEc@Z_^k92Th^W_@6njm0
 r1
 !s85 0
 31
 !i10b 1
-!s100 ;Ki8k:RV7RMR9ZnANC4n^2
-IKB=bL3lOPRQ^K1X=e^DA90
+!s100 DobM<CFEK8]KLm8jf@dR_0
+I^WEc@Z_^k92Th^W_@6njm0
 !i103 1
 S1
 R2
-R3
 R13
 R14
+R15
 L0 4
 R4
 R5
@@ -254,13 +254,13 @@ vspi_ctrl
 R1
 R12
 !i10b 1
-!s100 6GKizIZ]EiFKXinWGaBTm1
-IjMoCGC_W94]H@PPG2KK?J2
-VdGR3ahP6d8fbOB^E]n4ng3
+!s100 7Y>D1G[dfI@YT<c2ARS8G2
+I2EK5IN=R7?_:@UCAaCBHO3
+VYIlzf<SN_cYzPd4;@c8392
 !s105 spi_ctrl_sv_unit
 S1
 R2
-R3
+w1564509662
 8../src/spi_ctrl.sv
 F../src/spi_ctrl.sv
 L0 4
@@ -323,13 +323,13 @@ vtop_spi_master
 R1
 R12
 !i10b 1
-!s100 ?C2amXj8ISfb1Ifj]BIl@2
-Im1HEG7FJ82jAl]0C`SlJ_1
+!s100 b9NbILM57OaUZ15[m^Nl52
+ImW5dC=J0RIV5BX?9`U>jl0
 VAKI5=YZag?7D13N0X>K0F0
 !s105 top_spi_master_sv_unit
 S1
 R2
-R3
+w1564509669
 8../src/top_spi_master.sv
 F../src/top_spi_master.sv
 L0 4

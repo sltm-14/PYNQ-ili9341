@@ -29,6 +29,7 @@ import pkg_ili9341::*;
     logic             r_reset       = HIGH;
     logic             r_reset_sent  = OFF;
     logic             r_15_ena      = OFF;
+    logic             r_15_aux      = OFF;
 
   /*---------------------------------- WAIT COUNTER ----------------------------------*/
 
@@ -91,6 +92,7 @@ import pkg_ili9341::*;
             r_15_ena     = OFF;
 
             r_reset_sent = LOW;
+            r_15_aux     = HIGH;
             r_reset      = HIGH;
         end
 
@@ -101,6 +103,7 @@ import pkg_ili9341::*;
                     r_15_ena     = OFF;
 
                     r_reset_sent = LOW;
+                    r_15_aux     = HIGH;
                     r_reset      = HIGH;
                 end
 
@@ -108,6 +111,7 @@ import pkg_ili9341::*;
                     r_15_ena     = OFF;
 
                     r_reset_sent = LOW;
+                    r_15_aux     = i_reset_val;
                     r_reset      = i_reset_val;
                 end
 
@@ -115,13 +119,22 @@ import pkg_ili9341::*;
                     r_15_ena     = ON;
 
                     r_reset_sent = LOW;
-                    r_reset      = r_reset;
+                    r_15_aux     = HIGH;
+                    r_reset      = r_15_aux;
                 end
 
                 DONE: begin
                     r_15_ena     = OFF;
 
                     r_reset_sent = HIGH;
+                    r_15_aux     = HIGH;
+                    r_reset      = HIGH;
+                end
+                default:begin
+                    r_15_ena     = OFF;
+
+                    r_reset_sent = LOW;
+                    r_15_aux     = HIGH;
                     r_reset      = HIGH;
                 end
 

@@ -72,7 +72,6 @@ import pkg_ili9341::*;
         .i_send_comm_ena   (wires.send_comm_ena),
         .i_command_sent    (wires.command_sent),
         .i_command         (wires.command),
-        .i_shift_dis       (wires.shift_dis),
 
         .o_comm_array_sent (wires.comm_array_sent),
         .o_send            (wires.send),
@@ -87,7 +86,6 @@ import pkg_ili9341::*;
 
         .send            (wires.send),
 
-        .shift_dis       (wires.shift_dis),
         .shift_en        (wires.shift_en),
         .done            (wires.command_sent),
         .load            (wires.load),

@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jul 30 12:47:12 2019
+# Process ID: 624
+# Current directory: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6584 C:\Carem\ILI\ILI9341\Pynq-ili9341\Vivado\project_ili9341\project_ili9341.xpr
+# Log file: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/vivado.log
+# Journal file: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1

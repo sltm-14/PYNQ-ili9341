@@ -9,7 +9,6 @@ import pkg_ili9341::*;
 
     input  send,
 
-    output logic shift_dis,
     output logic shift_en,
     output logic done,
     output logic load,
@@ -50,7 +49,7 @@ import pkg_ili9341::*;
         if (!rst) begin
             state <= INIT;
         end
-        
+
         else begin
             case(state)
                 INIT : begin
@@ -59,23 +58,23 @@ import pkg_ili9341::*;
                     else
                         state <= state;
                 end
-    
+
                 LOAD : begin
                     state <= SHIFT;
                 end
-    
+
                 SHIFT : begin
                     if(count == 5'b0_0001)
                         state <= DONE;
                     else
                         state <= state;
                 end
-    
+
                 DONE : begin
                     state <= INIT;
                 end
-    
-    
+
+
                 default : begin
                     state <= INIT;
                 end
@@ -87,7 +86,6 @@ import pkg_ili9341::*;
 
         case(state)
             INIT : begin
-                shift_dis = 1'b1;
                 shift_en  = 1'b0;
                 load      = 1'b0;
                 done      = 1'b0;
@@ -96,7 +94,6 @@ import pkg_ili9341::*;
             end
 
             LOAD : begin
-                shift_dis = 1'b0;
                 shift_en  = 1'b0;
                 load      = 1'b1;
                 done      = 1'b0;
@@ -105,7 +102,6 @@ import pkg_ili9341::*;
             end
 
             SHIFT : begin
-                shift_dis = 1'b0;
                 shift_en  = 1'b1;
                 load      = 1'b0;
                 done      = 1'b0;
@@ -114,7 +110,6 @@ import pkg_ili9341::*;
             end
 
             DONE : begin
-                shift_dis = 1'b0;
                 shift_en  = 1'b0;
                 load      = 1'b0;
                 done      = 1'b1;
@@ -123,7 +118,6 @@ import pkg_ili9341::*;
             end
 
             default : begin
-                shift_dis = 1'b0;
                 shift_en  = 1'b0;
                 load      = 1'b0;
                 done      = 1'b0;

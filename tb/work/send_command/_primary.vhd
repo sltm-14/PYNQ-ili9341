@@ -10,7 +10,6 @@ entity send_command is
         i_send_comm_ena : in     vl_logic;
         i_command_sent  : in     vl_logic;
         i_command       : in     vl_logic;
-        i_shift_dis     : in     vl_logic;
         o_comm_array_sent: out    vl_logic;
         o_send          : out    vl_logic;
         o_data          : out    vl_logic_vector;

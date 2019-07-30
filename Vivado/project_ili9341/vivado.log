@@ -1,0 +1,37 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jul 30 12:47:12 2019
+# Process ID: 624
+# Current directory: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6584 C:\Carem\ILI\ILI9341\Pynq-ili9341\Vivado\project_ili9341\project_ili9341.xpr
+# Log file: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/vivado.log
+# Journal file: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory 'C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:11 . Memory (MB): peak = 758.496 ; gain = 159.699
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue Jul 30 12:48:19 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue Jul 30 13:02:05 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue Jul 30 13:05:25 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue Jul 30 13:15:19 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log

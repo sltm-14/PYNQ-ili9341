@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7z020clg400-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -32,7 +31,6 @@ set_property ip_output_repo c:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
   C:/Carem/ILI/ILI9341/Pynq-ili9341/src/clk_divider.sv
-  C:/Carem/ILI/ILI9341/Pynq-ili9341/src/debouncer.sv
   C:/Carem/ILI/ILI9341/Pynq-ili9341/src/pkg_ili9341.sv
   C:/Carem/ILI/ILI9341/Pynq-ili9341/src/ili_ctrl.sv
   C:/Carem/ILI/ILI9341/Pynq-ili9341/src/pkg_loop.sv

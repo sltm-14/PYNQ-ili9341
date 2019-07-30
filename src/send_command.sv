@@ -14,7 +14,6 @@ import pkg_loop::*;
     input           i_send_comm_ena,
     input           i_command_sent,
     input           i_command,
-    input           i_shift_dis,
 
     output          o_comm_array_sent,
     output          o_send,
