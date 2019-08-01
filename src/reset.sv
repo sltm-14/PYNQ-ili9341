@@ -120,7 +120,7 @@ import pkg_ili9341::*;
 
                     r_reset_sent = LOW;
                     r_15_aux     = HIGH;
-                    r_reset      = r_15_aux;
+                    r_reset      = i_reset_val;
                 end
 
                 DONE: begin

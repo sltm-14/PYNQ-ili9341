@@ -100,7 +100,7 @@ import pkg_loop::*;
 			 	end
 
 			 	WAIT:begin
-					if ( ( i_command == LOOP_COMM && cnt_comm < COMM_LOOP ) || ( i_command == INI_COMM && cnt_comm < COMM_INIT ) && !cnt_8 ) begin
+					if ( (( i_command == LOOP_COMM && cnt_comm < COMM_LOOP ) || ( i_command == INI_COMM && cnt_comm < COMM_INIT )) && !cnt_8 ) begin
                         if ( cnt_comm == 1 ) begin
               			 	state <= DONE;
                         end

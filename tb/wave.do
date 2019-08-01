@@ -73,6 +73,9 @@ add wave -noupdate -color White /tb_spi_master/TB/RST/i_reset_val
 add wave -noupdate -color {Cornflower Blue} /tb_spi_master/TB/RST/state
 add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/RST/cnt_15
 add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_ena
+add wave -noupdate /tb_spi_master/TB/RST/r_reset
+add wave -noupdate /tb_spi_master/TB/RST/r_15_ena
+add wave -noupdate /tb_spi_master/TB/RST/r_15_aux
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset_sent
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset
 add wave -noupdate -divider CLK_DIV
@@ -81,7 +84,7 @@ add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/CLK_DIV/i_clk
 add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/CLK_DIV/counter
 add wave -noupdate -color Coral /tb_spi_master/TB/CLK_DIV/o_clk
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {723502 ps} 0}
+WaveRestoreCursors {{Cursor 1} {240047 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -97,4 +100,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {723456 ps} {723608 ps}
+WaveRestoreZoom {240 ns} {240152 ps}

@@ -2,8 +2,8 @@ library verilog;
 use verilog.vl_types.all;
 entity clk_divider is
     generic(
-        FRECUENCY_IN    : integer := 20;
-        FRECUENCY_OUT   : integer := 10;
+        FRECUENCY_IN    : integer := 10;
+        FRECUENCY_OUT   : integer := 5;
         COUNT_LENGTH    : vl_notype
     );
     port(
