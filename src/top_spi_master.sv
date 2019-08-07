@@ -10,6 +10,7 @@ import pkg_ili9341::*;
     input   miso,
     input   init_btn,
 
+    output  [1:0] state_leds,
     output  reset,
     output  mosi,
     output  sclk,
@@ -27,8 +28,6 @@ import pkg_ili9341::*;
         .o_clk      (wires.clk)
     );
 
-
-
     ili_ctrl ILI_CTRL(
     	.clk               (wires.clk),
     	.rst               (rst),
@@ -37,6 +36,7 @@ import pkg_ili9341::*;
         .i_resets_sent     (wires.resets_sent),
         .i_command_sent    (wires.comm_array_sent),
 
+        .o_state_leds      (state_leds),
         .o_reset_ini_ena   (wires.reset_ini_ena),
         .o_send_comm_ena   (wires.send_comm_ena),
         .o_command         (wires.command)

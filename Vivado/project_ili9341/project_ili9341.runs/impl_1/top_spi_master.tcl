@@ -65,16 +65,17 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg400-1
   set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.cache/wt [current_project]
-  set_property parent.project_path C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.xpr [current_project]
-  set_property ip_output_repo C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.cache/wt [current_project]
+  set_property parent.project_path C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.xpr [current_project]
+  set_property ip_output_repo C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/top_spi_master.dcp
-  read_xdc C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc
+  add_files -quiet C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/top_spi_master.dcp
+  read_xdc C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc
   link_design -top top_spi_master -part xc7z020clg400-1
   close_msg_db -file init_design.pb
 } RESULT]

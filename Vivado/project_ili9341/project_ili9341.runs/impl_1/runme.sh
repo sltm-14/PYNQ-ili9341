@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1'
+HD_PWD='C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

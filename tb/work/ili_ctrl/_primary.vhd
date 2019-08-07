@@ -10,6 +10,7 @@ entity ili_ctrl is
         i_ena_btn       : in     vl_logic;
         i_resets_sent   : in     vl_logic;
         i_command_sent  : in     vl_logic;
+        o_state_leds    : out    vl_logic;
         o_reset_ini_ena : out    vl_logic;
         o_send_comm_ena : out    vl_logic;
         o_command       : out    vl_logic

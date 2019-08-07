@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Thu Aug  1 13:47:41 2019
+| Date         : Wed Aug  7 13:54:25 2019
 | Host         : MXGUA05NBC18560 running 64-bit major release  (build 9200)
 | Command      : report_bus_skew -warn_on_violation -file top_spi_master_bus_skew_routed.rpt -pb top_spi_master_bus_skew_routed.pb -rpx top_spi_master_bus_skew_routed.rpx
 | Design       : top_spi_master

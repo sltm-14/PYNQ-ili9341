@@ -13,14 +13,19 @@ import pkg_ili9341::*;
 	input  i_resets_sent,
 	input  i_command_sent,
 
+    output [1:0] o_state_leds,
 	output o_reset_ini_ena,
 	output o_send_comm_ena,
 	output o_command
 );
   /*------------------------------------- STATES -------------------------------------*/
 
-  typedef enum logic [2:0] {IDLE,RESET,INIT,LOOP} state_t;
+  typedef enum logic [1:0] {IDLE,RESET,INIT,LOOP} state_t;
   state_t    state = IDLE;
+
+  logic [1:0] state_leds;
+
+
 
   /*----------------------------------- REGISTERS ------------------------------------*/
 
@@ -84,6 +89,7 @@ import pkg_ili9341::*;
             r_send_comm_ena = OFF;
             r_reset_ini_ena = OFF;
             r_command       = OFF;
+            state_leds      = 2'b00;
         end
 
         else begin
@@ -94,30 +100,35 @@ import pkg_ili9341::*;
                     r_send_comm_ena = OFF;
                     r_reset_ini_ena = OFF;
                     r_command       = OFF;
+                    state_leds      = 2'b00;
                 end
 
                 RESET:begin
                     r_send_comm_ena = OFF;
                     r_reset_ini_ena = ON;
                     r_command       = OFF;
+                    state_leds      = 2'b10;
                 end
 
                 INIT:begin
                     r_send_comm_ena = ON;
                     r_reset_ini_ena = OFF;
                     r_command       = INI_COMM;
+                    state_leds      = 2'b01;
                 end
 
                 LOOP:begin
                     r_send_comm_ena = ON;
                     r_reset_ini_ena = OFF;
                     r_command       = LOOP_COMM;
+                    state_leds      = 2'b11;
                 end
 
                 default: begin
                     r_send_comm_ena = OFF;
                     r_reset_ini_ena = OFF;
                     r_command       = OFF;
+                    state_leds     = 2'b00;
                 end
 
             endcase
@@ -129,6 +140,7 @@ import pkg_ili9341::*;
     assign o_send_comm_ena = r_send_comm_ena;
     assign o_reset_ini_ena = r_reset_ini_ena;
     assign o_command       = r_command;
+    assign o_state_leds    = state_leds;
 
 endmodule
 `endif

@@ -14,41 +14,43 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15960 
+INFO: Helper process launched with PID 24436 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 490.805 ; gain = 157.148
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 490.574 ; gain = 156.043
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top_spi_master' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/top_spi_master.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'clk_divider' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/clk_divider.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'top_spi_master' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/top_spi_master.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'clk_divider' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/clk_divider.sv:4]
 	Parameter FRECUENCY_IN bound to: 125000000 - type: integer 
 	Parameter FRECUENCY_OUT bound to: 4000000 - type: integer 
 	Parameter COUNT_LENGTH bound to: 27 - type: integer 
 	Parameter CONST bound to: 15 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'clk_divider' (1#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/clk_divider.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'ili_ctrl' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/ili_ctrl.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'clk_divider' (1#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/clk_divider.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'ili_ctrl' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/ili_ctrl.sv:4]
 	Parameter DW bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'ili_ctrl' (2#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/ili_ctrl.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'reset_init' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/reset_init.sv:4]
+INFO: [Synth 8-226] default block is never used [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/ili_ctrl.sv:44]
+INFO: [Synth 8-226] default block is never used [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/ili_ctrl.sv:97]
+INFO: [Synth 8-6155] done synthesizing module 'ili_ctrl' (2#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/ili_ctrl.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'reset_init' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset_init.sv:4]
 	Parameter DW bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'reset_init' (3#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/reset_init.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'reset' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/reset.sv:4]
-	Parameter MS15 bound to: 60000 - type: integer 
-	Parameter CN_15 bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'reset' (4#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/reset.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'send_command' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/send_command.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'reset_init' (3#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset_init.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'reset' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset.sv:4]
+	Parameter MS15 bound to: 20000000 - type: integer 
+	Parameter CN_15 bound to: 25 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'reset' (4#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'send_command' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/send_command.sv:6]
 	Parameter DW bound to: 8 - type: integer 
 	Parameter CN_C bound to: 18 - type: integer 
 	Parameter CYCL8 bound to: 3'b111 
 	Parameter CN_8 bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'send_command' (5#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/send_command.sv:6]
-INFO: [Synth 8-6157] synthesizing module 'spi_ctrl' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/spi_ctrl.sv:4]
-INFO: [Synth 8-6155] done synthesizing module 'spi_ctrl' (6#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/spi_ctrl.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'spi_shift' [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/spi_shift.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'send_command' (5#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/send_command.sv:6]
+INFO: [Synth 8-6157] synthesizing module 'spi_ctrl' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/spi_ctrl.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'spi_ctrl' (6#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/spi_ctrl.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'spi_shift' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/spi_shift.sv:4]
 	Parameter DW bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'spi_shift' (7#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/spi_shift.sv:4]
-INFO: [Synth 8-6155] done synthesizing module 'top_spi_master' (8#1) [C:/Carem/ILI/ILI9341/Pynq-ili9341/src/top_spi_master.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'spi_shift' (7#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/spi_shift.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'top_spi_master' (8#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/top_spi_master.sv:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 708.090 ; gain = 374.434
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 774.152 ; gain = 439.621
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -61,50 +63,51 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 708.090 ; gain = 374.434
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 774.152 ; gain = 439.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 708.090 ; gain = 374.434
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 774.152 ; gain = 439.621
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]
-Finished Parsing XDC File [C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_spi_master_propImpl.xdc].
+Parsing XDC File [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]
+Finished Parsing XDC File [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_spi_master_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_spi_master_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 942.309 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.215 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 942.316 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.223 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 942.316 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 942.316 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.223 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1024.223 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 942.316 ; gain = 608.660
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 1024.223 ; gain = 689.691
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 942.316 ; gain = 608.660
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 1024.223 ; gain = 689.691
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 942.316 ; gain = 608.660
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 1024.223 ; gain = 689.691
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "l_clk" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ili_ctrl'
-INFO: [Synth 8-5544] ROM "r_command" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "r_send_comm_ena" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "r_reset_ini_ena" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_command" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_send_comm_ena" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_reset_ini_ena" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state_leds" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'reset_init'
@@ -118,12 +121,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'reset
 INFO: [Synth 8-5544] ROM "r_15_ena" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "r_reset_sent" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'send_command'
-INFO: [Synth 8-5544] ROM "r_8_ena" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "r_send" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "r_comm_array_sent" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "cnt_comm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_8_ena" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'spi_ctrl'
 INFO: [Synth 8-5544] ROM "clk_en" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -134,10 +133,10 @@ INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address si
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    IDLE |                               00 |                              000
-                   RESET |                               01 |                              001
-                    INIT |                               10 |                              010
-                    LOOP |                               11 |                              011
+                    IDLE |                               00 |                               00
+                   RESET |                               01 |                               01
+                    INIT |                               10 |                               10
+                    LOOP |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ili_ctrl'
 ---------------------------------------------------------------------------------------------------
@@ -162,15 +161,6 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    IDLE |                               00 |                              000
-                 COMMAND |                               01 |                              001
-                    WAIT |                               10 |                              010
-                    DONE |                               11 |                              011
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'send_command'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
                     INIT |                             0001 |                              000
                     LOAD |                             0010 |                              001
                    SHIFT |                             0100 |                              010
@@ -178,7 +168,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'spi_ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 988.824 ; gain = 655.168
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:10 ; elapsed = 00:01:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -186,8 +176,9 @@ Report RTL Partitions:
 |      |RTL Partition       |Replication |Instances |
 +------+--------------------+------------+----------+
 |1     |rom_send_command    |           1|     81910|
-|2     |send_command__GB1   |           1|       334|
-|3     |top_spi_master__GC0 |           1|      1139|
+|2     |send_command__GB1   |           1|       471|
+|3     |rom__2_send_command |           1|     81910|
+|4     |top_spi_master__GC0 |           1|      1195|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -196,28 +187,34 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
 	   2 Input     27 Bit       Adders := 1     
+	   2 Input     18 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
 	               27 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
 	                9 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input     27 Bit        Muxes := 1     
+	   2 Input     18 Bit        Muxes := 1     
 	   3 Input      9 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 3     
 	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 3     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 5     
 	   5 Input      3 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 3     
-	   2 Input      2 Bit        Muxes := 9     
-	   2 Input      1 Bit        Muxes := 9     
+	   3 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 14    
 	   4 Input      1 Bit        Muxes := 11    
+	   3 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -230,17 +227,21 @@ Module send_command
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
+	   2 Input     18 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
-	                3 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 2     
+	   2 Input     18 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
 	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 6     
+	   3 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 11    
 	   4 Input      1 Bit        Muxes := 5     
+	   3 Input      1 Bit        Muxes := 1     
 Module clk_divider 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -255,7 +256,7 @@ Module ili_ctrl
 Detailed RTL Component Info : 
 +---Muxes : 
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      2 Bit        Muxes := 4     
 	   4 Input      1 Bit        Muxes := 2     
 Module reset_init 
 Detailed RTL Component Info : 
@@ -304,10 +305,10 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "CLK_DIV/l_clk" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SEND_COMMi_3/\state_reg[2] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 988.824 ; gain = 655.168
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:28 ; elapsed = 00:01:48 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -319,6 +320,9 @@ ROM:
 +---------------+------------+---------------+----------------+
 |send_command   | p_0_out    | 262144x10     | LUT            | 
 |send_command   | p_0_out    | 64x10         | LUT            | 
+|send_command   | p_0_out    | 262144x10     | LUT            | 
+|send_command   | p_0_out    | 64x10         | LUT            | 
+|top_spi_master | p_0_out    | 64x10         | LUT            | 
 |top_spi_master | p_0_out    | 64x10         | LUT            | 
 +---------------+------------+---------------+----------------+
 
@@ -331,20 +335,21 @@ Report RTL Partitions:
 |      |RTL Partition       |Replication |Instances |
 +------+--------------------+------------+----------+
 |1     |rom_send_command    |           1|     28896|
-|2     |send_command__GB1   |           1|       287|
-|3     |top_spi_master__GC0 |           1|       272|
+|2     |send_command__GB1   |           1|       352|
+|3     |rom__2_send_command |           1|        13|
+|4     |top_spi_master__GC0 |           1|       312|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 998.371 ; gain = 664.715
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:42 ; elapsed = 00:02:04 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:07 . Memory (MB): peak = 1027.043 ; gain = 693.387
+Finished Timing Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:02:06 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -352,14 +357,15 @@ Report RTL Partitions:
 |      |RTL Partition       |Replication |Instances |
 +------+--------------------+------------+----------+
 |1     |rom_send_command    |           1|     28896|
-|2     |send_command__GB1   |           1|       287|
-|3     |top_spi_master__GC0 |           1|       272|
+|2     |send_command__GB1   |           1|       352|
+|3     |rom__2_send_command |           1|        13|
+|4     |top_spi_master__GC0 |           1|       312|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:20 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Technology Mapping : Time (s): cpu = 00:01:57 ; elapsed = 00:02:22 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -383,7 +389,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished IO Insertion : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -396,7 +402,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -408,25 +414,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -443,55 +449,55 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |    21|
+|2     |CARRY4 |    24|
 |3     |LUT1   |    20|
-|4     |LUT2   |    25|
-|5     |LUT3   |    46|
-|6     |LUT4   |    48|
+|4     |LUT2   |    47|
+|5     |LUT3   |    47|
+|6     |LUT4   |    66|
 |7     |LUT5   |    13|
-|8     |LUT6   |    69|
+|8     |LUT6   |    75|
 |9     |MUXF7  |    12|
-|10    |FDCE   |    66|
-|11    |FDPE   |    25|
+|10    |FDCE   |    90|
+|11    |FDPE   |    28|
 |12    |IBUF   |     4|
-|13    |OBUF   |     5|
+|13    |OBUF   |     7|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+------------+-------------+------+
 |      |Instance    |Module       |Cells |
 +------+------------+-------------+------+
-|1     |top         |             |   356|
-|2     |  CLK_DIV   |clk_divider  |    71|
-|3     |  CTRL      |spi_ctrl     |    22|
-|4     |  ILI_CTRL  |ili_ctrl     |     3|
-|5     |  RST       |reset        |    59|
+|1     |top         |             |   435|
+|2     |  CLK_DIV   |clk_divider  |    70|
+|3     |  CTRL      |spi_ctrl     |    40|
+|4     |  ILI_CTRL  |ili_ctrl     |     5|
+|5     |  RST       |reset        |    91|
 |6     |  RST_INIT  |reset_init   |    11|
-|7     |  SEND_COMM |send_command |   170|
+|7     |  SEND_COMM |send_command |   196|
 |8     |  SHIFT     |spi_shift    |     9|
 +------+------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:58 ; elapsed = 00:01:11 . Memory (MB): peak = 1073.965 ; gain = 506.082
-Synthesis Optimization Complete : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1073.965 ; gain = 740.309
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:37 ; elapsed = 00:02:08 . Memory (MB): peak = 1283.770 ; gain = 699.168
+Synthesis Optimization Complete : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 33 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1073.965 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1283.770 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-66 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+64 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:18 ; elapsed = 00:01:25 . Memory (MB): peak = 1073.965 ; gain = 752.941
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1073.965 ; gain = 0.000
+synth_design: Time (s): cpu = 00:02:02 ; elapsed = 00:02:27 . Memory (MB): peak = 1283.770 ; gain = 962.242
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1283.770 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/top_spi_master.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/top_spi_master.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_spi_master_utilization_synth.rpt -pb top_spi_master_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Aug  1 13:46:15 2019...
+INFO: [Common 17-206] Exiting Vivado at Wed Aug  7 13:52:36 2019...

@@ -166,8 +166,8 @@ import pkg_loop::*;
                     r_comm_array_sent = LOW;
                     r_send            = LOW;
                     r_data            = NO_DATA;
-                    r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][8] : loop_commands[cnt_comm - 1][8];
-                    r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm - 1][9] : loop_commands[cnt_comm - 1][9];
+                    r_dc              = ( i_command == INI_COMM )? ini_commands[cnt_comm][8] : loop_commands[cnt_comm][8];
+                    r_cs              = ( i_command == INI_COMM )? ini_commands[cnt_comm][9] : loop_commands[cnt_comm][9];
 			 	end
 
                 DONE:begin

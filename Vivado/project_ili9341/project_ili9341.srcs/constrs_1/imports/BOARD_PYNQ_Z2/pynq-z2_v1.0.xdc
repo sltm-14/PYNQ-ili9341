@@ -24,10 +24,10 @@ set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports { rst }]
 
 ##LEDs
 
-#set_property -dict { PACKAGE_PIN R14   IOSTANDARD LVCMOS33 } [get_ports { i_Lt[0] }]; #IO_L6N_T0_VREF_34 Sch=led[0]
-#set_property -dict { PACKAGE_PIN P14   IOSTANDARD LVCMOS33 } [get_ports { i_Lt[1] }]; #IO_L6P_T0_34 Sch=led[1]
-#set_property -dict { PACKAGE_PIN N16   IOSTANDARD LVCMOS33 } [get_ports { i_Lt[2] }]; #IO_L21N_T3_DQS_AD14N_35 Sch=led[2]
-#set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { i_Lt[3] }]; #IO_L23P_T3_35 Sch=led[3]
+set_property -dict { PACKAGE_PIN R14   IOSTANDARD LVCMOS33 } [get_ports { reset }]; #IO_L6N_T0_VREF_34 Sch=led[0]
+set_property -dict { PACKAGE_PIN P14   IOSTANDARD LVCMOS33 } [get_ports { state_leds[0] }]; #IO_L6P_T0_34 Sch=led[1]
+set_property -dict { PACKAGE_PIN N16   IOSTANDARD LVCMOS33 } [get_ports { state_leds[1] }]; #IO_L21N_T3_DQS_AD14N_35 Sch=led[2]
+#set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { state_leds[1] }]; #IO_L23P_T3_35 Sch=led[3]
 
 ##Buttons
 
@@ -140,7 +140,7 @@ set_property -dict { PACKAGE_PIN U8    IOSTANDARD LVCMOS33 } [get_ports { miso }
 set_property -dict { PACKAGE_PIN V8    IOSTANDARD LVCMOS33 } [get_ports { sclk }]; #IO_L15P_T2_DQS_13 Sch=rpio_10_r
 set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { mosi }]; #IO_L21N_T3_DQS_13 Sch=rpio_09_r
 set_property -dict { PACKAGE_PIN W10   IOSTANDARD LVCMOS33 } [get_ports { dc }]; #IO_L16P_T2_13 Sch=rpio_11_r
-set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { reset }]; #IO_L7P_T1_34 Sch=rpio_sd_r
+#set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { reset }]; #IO_L7P_T1_34 Sch=rpio_sd_r
 #Does not work -- set_property -dict { PACKAGE_PIN Y6    IOSTANDARD LVCMOS33 } [get_ports { i_Lr[3] }]; #IO_L13N_T2_MRCC_13 Sch=rpio_15_r
 #Does not work -- set_property -dict { PACKAGE_PIN Y7    IOSTANDARD LVCMOS33 } [get_ports { i_Lr[4] }]; #IO_L13P_T2_MRCC_13 Sch=rpio_24_r
 set_property -dict { PACKAGE_PIN W8    IOSTANDARD LVCMOS33 } [get_ports { cs }]; #IO_L15N_T2_DQS_13 Sch=rpio_13_r

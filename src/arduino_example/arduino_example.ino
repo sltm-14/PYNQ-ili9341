@@ -124,7 +124,9 @@ void Lcd_Init(void){
     Lcd_Write_Data(0x27);
 
     Lcd_Write_Com(0x11);    // Exit Sleep
-    delay(120);
+
+
+    //delay(120);
 
     Lcd_Write_Com(0x29);    // Display on
     Lcd_Write_Com(0x2c);
@@ -209,36 +211,101 @@ void setup(){
   digitalWrite(A4, HIGH);
   digitalWrite(A5, HIGH);
 
-  Lcd_Init();
+  
 
 }
 
 void loop(){
 
-  LCD_Clear(0xB403);
-
-/*
   buttonState = digitalRead(buttonPin);
 
    if (buttonState == HIGH) {
-        digitalWrite(CS,LOW);  //CS
 
-        Lcd_Write_Com(0xCB);
+  digitalWrite(CS,LOW);  //CS
 
-        Lcd_Write_Data(0x39);
-        Lcd_Write_Data(0x2C);
-        Lcd_Write_Data(0x00);
-        Lcd_Write_Data(0x34);
-        Lcd_Write_Data(0x02);
+    digitalWrite(RESET,HIGH);
+    delay(15000);
+    digitalWrite(RESET,LOW);
+    delay(15000);
+    digitalWrite(RESET,HIGH);
+    delay(15000);
+
+    Lcd_Write_Com(0xCB);
+    Lcd_Write_Data(0x39);
+    Lcd_Write_Data(0x2C);
+    Lcd_Write_Data(0x00);
+    Lcd_Write_Data(0x34);
+    Lcd_Write_Data(0x02);
+
+    Lcd_Write_Com(0xCF);
+    Lcd_Write_Data(0x00);
+    Lcd_Write_Data(0XC1);
+    Lcd_Write_Data(0X30);
+
+    Lcd_Write_Com(0xE8);
+    Lcd_Write_Data(0x85);
+    Lcd_Write_Data(0x00);
+    Lcd_Write_Data(0x78);
+
+    Lcd_Write_Com(0xEA);
+    Lcd_Write_Data(0x00);
+    Lcd_Write_Data(0x00);
+
+    Lcd_Write_Com(0xED);
+    Lcd_Write_Data(0x64);
+    Lcd_Write_Data(0x03);
+    Lcd_Write_Data(0X12);
+    Lcd_Write_Data(0X81);
+
+    Lcd_Write_Com(0xF7);
+    Lcd_Write_Data(0x20);
+
+    Lcd_Write_Com(0xC0);    //Power control
+    Lcd_Write_Data(0x23);   //VRH[5:0]
+
+    Lcd_Write_Com(0xC1);    //Power control
+    Lcd_Write_Data(0x10);   //SAP[2:0];BT[3:0]
+
+    Lcd_Write_Com(0xC5);    //VCM control
+    Lcd_Write_Data(0x3e);   //Contrast
+    Lcd_Write_Data(0x28);
+
+    Lcd_Write_Com(0xC7);    //VCM control2
+    Lcd_Write_Data(0x86);   //--
+
+    Lcd_Write_Com(0x36);    // Memory Access Control
+    Lcd_Write_Data(0x48);
+
+    Lcd_Write_Com(0x3A);
+    Lcd_Write_Data(0x55);
+
+    Lcd_Write_Com(0xB1);
+    Lcd_Write_Data(0x00);
+    Lcd_Write_Data(0x18);
+
+    Lcd_Write_Com(0xB6);    // Display Function Control
+    Lcd_Write_Data(0x08);
+    Lcd_Write_Data(0x82);
+    Lcd_Write_Data(0x27);
+
+    Lcd_Write_Com(0x11);    // Exit Sleep
 
 
+    //delay(120);
 
+    Lcd_Write_Com(0x29);    // Display on
+    Lcd_Write_Com(0x2c);
+    digitalWrite(CS,HIGH);
+
+ 
+    
   } else {
-       LCD_Clear(0xB403);
-       Rect(75,110,100,100,300);
+       LCD_Clear(0xAAAA);
+
+       delay(400);
   }
 
-*/
+
 
 
 
