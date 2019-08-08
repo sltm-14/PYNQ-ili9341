@@ -42,6 +42,8 @@ package pkg_ili9341;
 			logic       load;
 			logic [7:0] data;
 			logic       clk;
+			logic       dc;
+			logic       cs;
 	} st_top_wires;
 
 

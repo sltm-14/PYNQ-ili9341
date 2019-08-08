@@ -9,27 +9,52 @@ module spi_shift
     input           clk,
     input           rst,
 
-    input           shift_en,
-    input           load,
-    input           miso,
-    input  [DW-1:0] data,
+    input           i_shift_en,
+    input           i_load,
+    input           i_miso,
+    input  [DW-1:0] i_data,
+    input           i_dc,
+    input           i_cs,
 
-    output          mosi
+    output          o_mosi,
+    output          o_dc,
+    output          o_cs
 );
-	reg [DW:0] data_r = 9'b1_1111_1111;
+	logic [DW:0] r_data = 9'b1_1111_1111;
+    logic        r_dc   = 1'b1;
+    logic        r_cs   = 1'b1;
 
     always @( posedge clk, negedge rst ) begin
-        if ( !rst )
-			data_r = 9'b1_1111_1111;
-		else if( load )
-            data_r = { data, miso };
-        else if ( shift_en )
-            data_r = { data_r[DW-1:0], miso };
-        else
-            data_r = { 1'b1, data_r[DW-1:0] };
+        if ( !rst )begin
+			r_data = 9'b1_1111_1111;
+            r_dc   = 1'b1;
+            r_cs   = 1'b1;
+        end
+        else if ( !i_shift_en ) begin
+            r_data = { 1, r_data[DW-1:0] };
+            r_dc   = r_dc;
+            r_cs   = r_cs;
+        end
+		else if( i_load )begin
+            r_data = { i_data, i_miso };
+            r_dc   = i_dc;
+            r_cs   = i_cs;
+        end
+        else if ( i_shift_en )begin
+            r_data = { r_data[DW-1:0], i_miso };
+            r_dc = r_dc;
+            r_cs = r_cs;
+        end
+        else begin
+            r_data = { 1, r_data[DW-1:0] };
+            r_dc   = r_dc;
+            r_cs   = r_cs;
+        end
     end
 
-    assign mosi =  data_r[DW] ;
+    assign o_mosi = r_data[DW];
+    assign o_dc   = r_dc;
+    assign o_cs   = r_cs;
 
 endmodule
 `endif

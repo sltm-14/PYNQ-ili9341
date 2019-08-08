@@ -5,15 +5,20 @@ add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/clk
 add wave -noupdate -divider INPUTS
 add wave -noupdate -color White /tb_spi_master/TB/init_btn
 add wave -noupdate -color White /tb_spi_master/TB/miso
+add wave -noupdate -divider CLK_DIV
+add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/CLK_DIV/rst
+add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/CLK_DIV/i_clk
+add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/CLK_DIV/counter
+add wave -noupdate -color Coral /tb_spi_master/TB/CLK_DIV/o_clk
 add wave -noupdate -divider OUTPUTS
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/reset
-add wave -noupdate -color {Light Blue} /tb_spi_master/TB/mosi
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/sclk
+add wave -noupdate -color {Light Blue} /tb_spi_master/TB/mosi
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/dc
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/cs
 add wave -noupdate -divider ILI_INIT
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/rst
-add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/clk
+add wave -noupdate /tb_spi_master/TB/ILI_CTRL/clk
 add wave -noupdate -color White /tb_spi_master/TB/ILI_CTRL/i_ena_btn
 add wave -noupdate -color White /tb_spi_master/TB/ILI_CTRL/i_resets_sent
 add wave -noupdate -color White /tb_spi_master/TB/ILI_CTRL/i_command_sent
@@ -48,14 +53,20 @@ add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/done
 add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/load
 add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/sclk
 add wave -noupdate -divider SHIFTER
-add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/rst
-add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/clk
-add wave -noupdate -color White /tb_spi_master/TB/SHIFT/shift_en
-add wave -noupdate -color White /tb_spi_master/TB/SHIFT/load
-add wave -noupdate -color White /tb_spi_master/TB/SHIFT/miso
-add wave -noupdate -color White -radix unsigned /tb_spi_master/TB/SHIFT/data
-add wave -noupdate -color Khaki -radix hexadecimal /tb_spi_master/TB/SHIFT/data_r
-add wave -noupdate -color Coral /tb_spi_master/TB/SHIFT/mosi
+add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/SHIFT/clk
+add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/SHIFT/rst
+add wave -noupdate -color White /tb_spi_master/TB/SHIFT/i_shift_en
+add wave -noupdate -color White /tb_spi_master/TB/SHIFT/i_load
+add wave -noupdate -color White /tb_spi_master/TB/SHIFT/i_miso
+add wave -noupdate -color White -radix hexadecimal /tb_spi_master/TB/SHIFT/i_data
+add wave -noupdate -color White /tb_spi_master/TB/SHIFT/i_dc
+add wave -noupdate -color White /tb_spi_master/TB/SHIFT/i_cs
+add wave -noupdate -color Khaki -radix hexadecimal /tb_spi_master/TB/SHIFT/r_data
+add wave -noupdate -color Tan /tb_spi_master/TB/SHIFT/r_dc
+add wave -noupdate -color Tan /tb_spi_master/TB/SHIFT/r_cs
+add wave -noupdate -color Coral /tb_spi_master/TB/SHIFT/o_mosi
+add wave -noupdate -color Coral /tb_spi_master/TB/SHIFT/o_dc
+add wave -noupdate -color Coral /tb_spi_master/TB/SHIFT/o_cs
 add wave -noupdate -divider RST_INIT
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/RST_INIT/rst
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/RST_INIT/clk
@@ -73,18 +84,13 @@ add wave -noupdate -color White /tb_spi_master/TB/RST/i_reset_val
 add wave -noupdate -color {Cornflower Blue} /tb_spi_master/TB/RST/state
 add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/RST/cnt_15
 add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_ena
-add wave -noupdate /tb_spi_master/TB/RST/r_reset
-add wave -noupdate /tb_spi_master/TB/RST/r_15_ena
-add wave -noupdate /tb_spi_master/TB/RST/r_15_aux
+add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_reset
+add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_ena
+add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_aux
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset_sent
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset
-add wave -noupdate -divider CLK_DIV
-add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/CLK_DIV/rst
-add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/CLK_DIV/i_clk
-add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/CLK_DIV/counter
-add wave -noupdate -color Coral /tb_spi_master/TB/CLK_DIV/o_clk
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {240047 ps} 0}
+WaveRestoreCursors {{Cursor 1} {720179 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -100,4 +106,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {240 ns} {240152 ps}
+WaveRestoreZoom {720036 ps} {720501 ps}

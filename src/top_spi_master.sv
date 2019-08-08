@@ -76,8 +76,8 @@ import pkg_ili9341::*;
         .o_comm_array_sent (wires.comm_array_sent),
         .o_send            (wires.send),
         .o_data            (wires.data),
-        .o_dc              (dc),
-        .o_cs              (cs)
+        .o_dc              (wires.dc),
+        .o_cs              (wires.cs)
     );
 
     spi_ctrl CTRL(
@@ -93,15 +93,19 @@ import pkg_ili9341::*;
     );
 
     spi_shift SHIFT(
-        .clk            (wires.clk),
-        .rst            (rst),
+        .clk              (wires.clk),
+        .rst              (rst),
 
-        .shift_en       (wires.shift_en),
-        .load           (wires.load),
-        .miso           (miso),
-        .data           (wires.data),
+        .i_shift_en       (wires.shift_en),
+        .i_load           (wires.load),
+        .i_data           (wires.data),
+        .i_dc             (wires.dc),
+        .i_cs             (wires.cs),
+        .i_miso           (miso),
 
-        .mosi           (mosi)
+        .o_mosi           (mosi),
+        .o_dc             (dc),
+        .o_cs             (cs)
     );
 
 endmodule

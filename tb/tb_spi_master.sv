@@ -8,6 +8,7 @@ import pkg_ili9341::*;
     logic  miso;
     logic  init_btn;
 
+    logic  [1:0] state_leds;
     logic  reset;
     logic  mosi;
     logic  sclk;
@@ -25,7 +26,8 @@ import pkg_ili9341::*;
     	.mosi      (mosi),
     	.sclk      (sclk),
     	.dc        (dc),
-    	.cs        (cs)
+    	.cs        (cs),
+		.state_leds(state_leds)
 	);
 
 	always begin
@@ -35,7 +37,7 @@ import pkg_ili9341::*;
 
 	initial begin
 		init_btn = 0;
-		miso     = 0;
+		miso     = 1;
 	    clk      = 1;   #3;
 
 	    rst      = 1;   #2;

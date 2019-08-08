@@ -54,14 +54,14 @@ import pkg_ili9341::*;
             case(state)
                 INIT : begin
                     if(send)
-                        state <= LOAD;
+                        state <= SHIFT;
                     else
                         state <= state;
                 end
 
-                LOAD : begin
-                    state <= SHIFT;
-                end
+                // LOAD : begin
+                //     state <= SHIFT;
+                // end
 
                 SHIFT : begin
                     if(count == 5'b0_0001)
@@ -87,19 +87,19 @@ import pkg_ili9341::*;
         case(state)
             INIT : begin
                 shift_en  = 1'b0;
-                load      = 1'b0;
-                done      = 1'b0;
-
-                clk_en    = 1'b0;
-            end
-
-            LOAD : begin
-                shift_en  = 1'b0;
                 load      = 1'b1;
                 done      = 1'b0;
 
                 clk_en    = 1'b0;
             end
+
+            // LOAD : begin
+            //     shift_en  = 1'b0;
+            //     load      = 1'b1;
+            //     done      = 1'b0;
+            //
+            //     clk_en    = 1'b0;
+            // end
 
             SHIFT : begin
                 shift_en  = 1'b1;
