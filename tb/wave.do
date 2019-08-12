@@ -18,7 +18,7 @@ add wave -noupdate -color {Light Blue} /tb_spi_master/TB/dc
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/cs
 add wave -noupdate -divider ILI_INIT
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/rst
-add wave -noupdate /tb_spi_master/TB/ILI_CTRL/clk
+add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/ILI_CTRL/clk
 add wave -noupdate -color White /tb_spi_master/TB/ILI_CTRL/i_ena_btn
 add wave -noupdate -color White /tb_spi_master/TB/ILI_CTRL/i_resets_sent
 add wave -noupdate -color White /tb_spi_master/TB/ILI_CTRL/i_command_sent

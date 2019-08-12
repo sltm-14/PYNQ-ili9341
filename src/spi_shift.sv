@@ -24,37 +24,33 @@ module spi_shift
     logic        r_dc   = 1'b1;
     logic        r_cs   = 1'b1;
 
+
     always @( posedge clk, negedge rst ) begin
         if ( !rst )begin
 			r_data = 9'b1_1111_1111;
             r_dc   = 1'b1;
             r_cs   = 1'b1;
         end
-        else if ( !i_shift_en ) begin
-            r_data = { 1, r_data[DW-1:0] };
-            r_dc   = r_dc;
-            r_cs   = r_cs;
-        end
 		else if( i_load )begin
-            r_data = { i_data, i_miso };
+            r_data = { 1'b1, i_data};
             r_dc   = i_dc;
             r_cs   = i_cs;
         end
-        else if ( i_shift_en )begin
-            r_data = { r_data[DW-1:0], i_miso };
-            r_dc = r_dc;
-            r_cs = r_cs;
+        else if ( !i_shift_en )begin
+            r_data = { 1'b1, r_data[DW-1:0] };
+            r_dc   = r_dc;
+            r_cs   = r_cs;
         end
         else begin
-            r_data = { 1, r_data[DW-1:0] };
+            r_data = {  r_data[DW-1:0],i_miso };
             r_dc   = r_dc;
             r_cs   = r_cs;
         end
     end
 
-    assign o_mosi = r_data[DW];
-    assign o_dc   = r_dc;
-    assign o_cs   = r_cs;
+    assign o_mosi =  r_data[DW] ;
+    assign o_dc = r_dc;
+    assign o_cs = r_cs;
 
 endmodule
 `endif

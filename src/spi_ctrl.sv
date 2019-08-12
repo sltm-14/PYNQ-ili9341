@@ -17,7 +17,7 @@ import pkg_ili9341::*;
 
   /*------------------------------------- STATES -------------------------------------*/
 
-    typedef enum logic [2:0] {INIT,LOAD,SHIFT,DONE} state_t;
+    typedef enum logic [2:0] {INIT,START,SHIFT,LAST_CYCLE,DONE} state_t;
     state_t state;
 
     /*----------------------------------- REGISTERS ------------------------------------*/
@@ -54,14 +54,14 @@ import pkg_ili9341::*;
             case(state)
                 INIT : begin
                     if(send)
-                        state <= SHIFT;
+                        state <= START;
                     else
                         state <= state;
                 end
 
-                // LOAD : begin
-                //     state <= SHIFT;
-                // end
+                START: begin
+                    state <= SHIFT;
+                end
 
                 SHIFT : begin
                     if(count == 5'b0_0001)
@@ -71,9 +71,12 @@ import pkg_ili9341::*;
                 end
 
                 DONE : begin
-                    state <= INIT;
+                    state <= LAST_CYCLE;
                 end
 
+                LAST_CYCLE:begin
+                    state <= INIT;
+                end
 
                 default : begin
                     state <= INIT;
@@ -93,13 +96,13 @@ import pkg_ili9341::*;
                 clk_en    = 1'b0;
             end
 
-            // LOAD : begin
-            //     shift_en  = 1'b0;
-            //     load      = 1'b1;
-            //     done      = 1'b0;
-            //
-            //     clk_en    = 1'b0;
-            // end
+            START : begin
+                shift_en  = 1'b1;
+                load      = 1'b0;
+                done      = 1'b0;
+
+                clk_en    = 1'b0;
+            end
 
             SHIFT : begin
                 shift_en  = 1'b1;
@@ -109,10 +112,19 @@ import pkg_ili9341::*;
                 clk_en    = 1'b1;
             end
 
+
             DONE : begin
                 shift_en  = 1'b0;
                 load      = 1'b0;
                 done      = 1'b1;
+
+                clk_en    = 1'b1;
+            end
+
+            LAST_CYCLE : begin
+                shift_en  = 1'b0;
+                load      = 1'b0;
+                done      = 1'b0;
 
                 clk_en    = 1'b1;
             end
