@@ -20,7 +20,7 @@ Z3 OV;L;10.1d;51
 r1
 !s85 0
 31
-Z4 !s108 1565630504.113000
+Z4 !s108 1565632635.596000
 Z5 !s107 tb_spi_master.sv|../src/top_spi_master.sv|../src/spi_shift.sv|../src/spi_ctrl.sv|../src/send_command.sv|../src/reset.sv|../src/reset_init.sv|../src/ili_ctrl.sv|../src/debouncer.sv|../src/clk_divider.sv|../src/pkg_loop.sv|../src/pkg_ili9341.sv|
 Z6 !s90 -reportprogress|300|-f|files.f|
 !s101 -O0
@@ -254,13 +254,13 @@ vspi_ctrl
 R1
 R11
 !i10b 1
-!s100 [z;UzKg8Won418L<Hhgl11
-I:G<Vn[e<415IkGJo8k5`G1
+!s100 ASzT9jH[a_BEg_F^a_o^E3
+IIoa^TS_3ngSDj<<:QG[UH1
 VYIlzf<SN_cYzPd4;@c8392
 !s105 spi_ctrl_sv_unit
 S1
 R2
-w1565630498
+w1565632368
 8../src/spi_ctrl.sv
 F../src/spi_ctrl.sv
 L0 4
@@ -277,13 +277,13 @@ vspi_shift
 R1
 R11
 !i10b 1
-!s100 CN3zm3N^C9T:6RJK1bCdi0
-IiZ]Q@<c@CQ;iAfY75mzLh0
+!s100 7b=4M9SALc0m[nP`l1Uco1
+IH=I1[2V<k>]i?Z;Mn1^P81
 V=zS=O_J6R8g9TTHU4QZma3
 !s105 spi_shift_sv_unit
 S1
 R2
-w1565628245
+w1565632112
 8../src/spi_shift.sv
 F../src/spi_shift.sv
 L0 4
@@ -323,13 +323,13 @@ vtop_spi_master
 R1
 R11
 !i10b 1
-!s100 XFL4B6EUcYMgS41_Bf>z^2
-IdRgJLDL1XM^olOLOa=zh72
+!s100 GF`93O@lK>O@fbAQ;cC0d1
+I8QWZOjCod?jZ?JhaI6X=N0
 VLDk?RDiC;00aT^:?EjH6i1
 !s105 top_spi_master_sv_unit
 S1
 R2
-w1565285042
+w1565630996
 8../src/top_spi_master.sv
 F../src/top_spi_master.sv
 L0 4

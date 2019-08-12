@@ -65,16 +65,16 @@ import pkg_ili9341::*;
 
                 SHIFT : begin
                     if(count == 5'b0_0001)
-                        state <= DONE;
+                        state <= LAST_CYCLE;
                     else
                         state <= state;
                 end
 
-                DONE : begin
-                    state <= LAST_CYCLE;
+                LAST_CYCLE:begin
+                    state <= DONE;
                 end
 
-                LAST_CYCLE:begin
+                DONE : begin
                     state <= INIT;
                 end
 
@@ -112,19 +112,18 @@ import pkg_ili9341::*;
                 clk_en    = 1'b1;
             end
 
+            LAST_CYCLE : begin
+                shift_en  = 1'b1;
+                load      = 1'b0;
+                done      = 1'b0;
+
+                clk_en    = 1'b1;
+            end
 
             DONE : begin
                 shift_en  = 1'b0;
                 load      = 1'b0;
                 done      = 1'b1;
-
-                clk_en    = 1'b1;
-            end
-
-            LAST_CYCLE : begin
-                shift_en  = 1'b0;
-                load      = 1'b0;
-                done      = 1'b0;
 
                 clk_en    = 1'b1;
             end

@@ -20,9 +20,12 @@ module spi_shift
     output          o_dc,
     output          o_cs
 );
-	logic [DW:0] r_data = 9'b1_1111_1111;
-    logic        r_dc   = 1'b1;
-    logic        r_cs   = 1'b1;
+	logic [DW:0] r_data  = 9'b1_1111_1111;
+    logic        r_dc    = 1'b1;
+    logic        r_cs    = 1'b1;
+
+    logic        rc_dc   = 1'b1;
+    logic        rc_cs   = 1'b1;
 
 
     always @( posedge clk, negedge rst ) begin
@@ -30,21 +33,33 @@ module spi_shift
 			r_data = 9'b1_1111_1111;
             r_dc   = 1'b1;
             r_cs   = 1'b1;
+
+            rc_dc = 1'b1;
+            rc_cs = 1'b1;
         end
 		else if( i_load )begin
             r_data = { 1'b1, i_data};
-            r_dc   = i_dc;
-            r_cs   = i_cs;
+            rc_dc   = i_dc;
+            rc_cs   = i_cs;
+
+            r_dc   = r_dc;
+            r_cs   = r_cs;
         end
         else if ( !i_shift_en )begin
             r_data = { 1'b1, r_data[DW-1:0] };
-            r_dc   = r_dc;
-            r_cs   = r_cs;
+            r_dc   = rc_dc;
+            r_cs   = rc_cs;
+
+            rc_dc = rc_dc;
+            rc_cs = rc_cs;
         end
         else begin
-            r_data = {  r_data[DW-1:0],i_miso };
-            r_dc   = r_dc;
-            r_cs   = r_cs;
+            r_data = { r_data[DW-1:0], i_miso };
+            r_dc   = rc_dc;
+            r_cs   = rc_cs;
+
+            rc_dc = rc_dc;
+            rc_cs = rc_cs;
         end
     end
 

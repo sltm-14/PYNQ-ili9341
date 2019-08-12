@@ -80,7 +80,7 @@ import pkg_ili9341::*;
         .o_cs              (wires.cs)
     );
 
-    spi_ctrl CTRL(
+    spi_ctrl SPI_CTRL(
         .clk             (wires.clk),
         .rst             (rst),
 

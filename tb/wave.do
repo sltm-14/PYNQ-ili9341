@@ -44,14 +44,6 @@ add wave -noupdate -color Coral /tb_spi_master/TB/SEND_COMM/o_cs
 add wave -noupdate -divider CTRL
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/rst
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/clk
-add wave -noupdate -color White /tb_spi_master/TB/CTRL/send
-add wave -noupdate -color {Cornflower Blue} /tb_spi_master/TB/CTRL/state
-add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/CTRL/count
-add wave -noupdate -color Tan /tb_spi_master/TB/CTRL/clk_en
-add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/shift_en
-add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/done
-add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/load
-add wave -noupdate -color Coral /tb_spi_master/TB/CTRL/sclk
 add wave -noupdate -divider SHIFTER
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/SHIFT/clk
 add wave -noupdate -color {Yellow Green} /tb_spi_master/TB/SHIFT/rst
@@ -90,7 +82,7 @@ add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_aux
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset_sent
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {720179 ps} 0}
+WaveRestoreCursors {{Cursor 1} {720391 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
