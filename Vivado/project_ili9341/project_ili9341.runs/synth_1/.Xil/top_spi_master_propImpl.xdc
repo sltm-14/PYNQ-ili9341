@@ -19,5 +19,7 @@ set_property src_info {type:XDC file:1 line:141 export:INPUT save:INPUT read:REA
 set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { mosi }]; #IO_L21N_T3_DQS_13 Sch=rpio_09_r
 set_property src_info {type:XDC file:1 line:142 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN W10   IOSTANDARD LVCMOS33 } [get_ports { dc }]; #IO_L16P_T2_13 Sch=rpio_11_r
+set_property src_info {type:XDC file:1 line:143 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { reset }]; #IO_L7P_T1_34 Sch=rpio_sd_r
 set_property src_info {type:XDC file:1 line:146 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN W8    IOSTANDARD LVCMOS33 } [get_ports { cs }]; #IO_L15N_T2_DQS_13 Sch=rpio_13_r

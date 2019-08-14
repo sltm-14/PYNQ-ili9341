@@ -2,22 +2,23 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed Aug  7 13:49:58 2019
-# Process ID: 25416
+# Start of session at: Tue Aug 13 12:29:52 2019
+# Process ID: 6068
 # Current directory: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1
 # Command line: vivado.exe -log top_spi_master.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_spi_master.tcl
 # Log file: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/top_spi_master.vds
 # Journal file: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top_spi_master.tcl -notrace
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 321.086 ; gain = 77.328
 Command: synth_design -top top_spi_master -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 24436 
+INFO: Helper process launched with PID 3384 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 490.574 ; gain = 156.043
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 490.594 ; gain = 156.371
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_spi_master' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/top_spi_master.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'clk_divider' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/clk_divider.sv:4]
@@ -35,8 +36,8 @@ INFO: [Synth 8-6157] synthesizing module 'reset_init' [C:/Carem/ILI9341/ILI9341/
 	Parameter DW bound to: 8 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'reset_init' (3#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset_init.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'reset' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset.sv:4]
-	Parameter MS15 bound to: 20000000 - type: integer 
-	Parameter CN_15 bound to: 25 - type: integer 
+	Parameter MS15 bound to: 60000 - type: integer 
+	Parameter CN_15 bound to: 16 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'reset' (4#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/reset.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'send_command' [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/send_command.sv:6]
 	Parameter DW bound to: 8 - type: integer 
@@ -51,7 +52,7 @@ INFO: [Synth 8-6157] synthesizing module 'spi_shift' [C:/Carem/ILI9341/ILI9341/P
 INFO: [Synth 8-6155] done synthesizing module 'spi_shift' (7#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/spi_shift.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'top_spi_master' (8#1) [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/src/top_spi_master.sv:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 774.152 ; gain = 439.621
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 773.891 ; gain = 439.668
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -64,10 +65,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 774.152 ; gain = 439.621
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 773.891 ; gain = 439.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 774.152 ; gain = 439.621
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 773.891 ; gain = 439.668
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -78,30 +79,30 @@ Parsing XDC File [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/p
 Finished Parsing XDC File [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.srcs/constrs_1/imports/BOARD_PYNQ_Z2/pynq-z2_v1.0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_spi_master_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_spi_master_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.215 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1024.047 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.223 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.047 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.223 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1024.223 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.047 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1024.047 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 1024.223 ; gain = 689.691
+Finished Constraint Validation : Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 1024.047 ; gain = 689.824
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 1024.223 ; gain = 689.691
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 1024.047 ; gain = 689.824
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 1024.223 ; gain = 689.691
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 1024.047 ; gain = 689.824
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "l_clk" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ili_ctrl'
@@ -162,14 +163,15 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    INIT |                             0001 |                              000
-                    LOAD |                             0010 |                              001
-                   SHIFT |                             0100 |                              010
-                    DONE |                             1000 |                              011
+                    INIT |                            00001 |                              000
+                   START |                            00010 |                              001
+                   SHIFT |                            00100 |                              010
+              LAST_CYCLE |                            01000 |                              011
+                    DONE |                            10000 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'spi_ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:10 ; elapsed = 00:01:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:18 ; elapsed = 00:01:32 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -179,7 +181,7 @@ Report RTL Partitions:
 |1     |rom_send_command    |           1|     81910|
 |2     |send_command__GB1   |           1|       471|
 |3     |rom__2_send_command |           1|     81910|
-|4     |top_spi_master__GC0 |           1|      1195|
+|4     |top_spi_master__GC0 |           1|      1155|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -197,7 +199,7 @@ Detailed RTL Component Info :
 	                9 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
 +---Muxes : 
 	   2 Input     27 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 1     
@@ -205,8 +207,9 @@ Detailed RTL Component Info :
 	   2 Input      9 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 3     
 	   4 Input      8 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 3     
-	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 5     
 	   5 Input      3 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
@@ -214,9 +217,9 @@ Detailed RTL Component Info :
 	   4 Input      2 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 6     
 	   2 Input      1 Bit        Muxes := 14    
-	   4 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 10    
 	   3 Input      1 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -280,13 +283,15 @@ Detailed RTL Component Info :
 +---Registers : 
 	                4 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      4 Bit        Muxes := 3     
-	   4 Input      4 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 2     
 Module spi_shift 
 Detailed RTL Component Info : 
 +---Registers : 
 	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
 +---Muxes : 
 	   3 Input      9 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 2     
@@ -309,7 +314,7 @@ Warning: Parallel synthesis criteria is not met
 INFO: [Synth 8-5545] ROM "CLK_DIV/l_clk" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (SEND_COMMi_3/\state_reg[2] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:28 ; elapsed = 00:01:48 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:52 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -335,38 +340,38 @@ Report RTL Partitions:
 +------+--------------------+------------+----------+
 |      |RTL Partition       |Replication |Instances |
 +------+--------------------+------------+----------+
-|1     |rom_send_command    |           1|     28896|
+|1     |rom_send_command    |           1|     24119|
 |2     |send_command__GB1   |           1|       352|
 |3     |rom__2_send_command |           1|        13|
-|4     |top_spi_master__GC0 |           1|       312|
+|4     |top_spi_master__GC0 |           1|       277|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:42 ; elapsed = 00:02:04 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:51 ; elapsed = 00:02:09 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:02:06 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Timing Optimization : Time (s): cpu = 00:01:52 ; elapsed = 00:02:11 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+--------------------+------------+----------+
 |      |RTL Partition       |Replication |Instances |
 +------+--------------------+------------+----------+
-|1     |rom_send_command    |           1|     28896|
+|1     |rom_send_command    |           1|     24119|
 |2     |send_command__GB1   |           1|       352|
 |3     |rom__2_send_command |           1|        13|
-|4     |top_spi_master__GC0 |           1|       312|
+|4     |top_spi_master__GC0 |           1|       277|
 +------+--------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:57 ; elapsed = 00:02:22 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Technology Mapping : Time (s): cpu = 00:02:08 ; elapsed = 00:02:28 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -390,7 +395,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished IO Insertion : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -403,7 +408,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -415,25 +420,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -450,55 +455,54 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |    24|
-|3     |LUT1   |    20|
-|4     |LUT2   |    47|
-|5     |LUT3   |    47|
-|6     |LUT4   |    66|
-|7     |LUT5   |    13|
-|8     |LUT6   |    75|
-|9     |MUXF7  |    12|
-|10    |FDCE   |    90|
-|11    |FDPE   |    28|
-|12    |IBUF   |     4|
-|13    |OBUF   |     7|
+|2     |CARRY4 |    21|
+|3     |LUT1   |    19|
+|4     |LUT2   |    43|
+|5     |LUT3   |    33|
+|6     |LUT4   |    41|
+|7     |LUT5   |    27|
+|8     |LUT6   |    76|
+|9     |FDCE   |    83|
+|10    |FDPE   |    31|
+|11    |IBUF   |     4|
+|12    |OBUF   |     7|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+------------+-------------+------+
 |      |Instance    |Module       |Cells |
 +------+------------+-------------+------+
-|1     |top         |             |   435|
-|2     |  CLK_DIV   |clk_divider  |    70|
-|3     |  CTRL      |spi_ctrl     |    40|
-|4     |  ILI_CTRL  |ili_ctrl     |     5|
-|5     |  RST       |reset        |    91|
-|6     |  RST_INIT  |reset_init   |    11|
-|7     |  SEND_COMM |send_command |   196|
-|8     |  SHIFT     |spi_shift    |     9|
+|1     |top         |             |   387|
+|2     |  CLK_DIV   |clk_divider  |    69|
+|3     |  ILI_CTRL  |ili_ctrl     |     6|
+|4     |  RST       |reset        |    59|
+|5     |  RST_INIT  |reset_init   |    11|
+|6     |  SEND_COMM |send_command |   173|
+|7     |  SHIFT     |spi_shift    |    13|
+|8     |  SPI_CTRL  |spi_ctrl     |    43|
 +------+------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:37 ; elapsed = 00:02:08 . Memory (MB): peak = 1283.770 ; gain = 699.168
-Synthesis Optimization Complete : Time (s): cpu = 00:01:59 ; elapsed = 00:02:24 . Memory (MB): peak = 1283.770 ; gain = 949.238
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:42 ; elapsed = 00:02:13 . Memory (MB): peak = 1283.406 ; gain = 699.027
+Synthesis Optimization Complete : Time (s): cpu = 00:02:10 ; elapsed = 00:02:30 . Memory (MB): peak = 1283.406 ; gain = 949.184
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1283.770 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1283.406 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 64 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:02 ; elapsed = 00:02:27 . Memory (MB): peak = 1283.770 ; gain = 962.242
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1283.770 ; gain = 0.000
+synth_design: Time (s): cpu = 00:02:13 ; elapsed = 00:02:34 . Memory (MB): peak = 1283.406 ; gain = 962.320
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1283.406 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/top_spi_master.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_spi_master_utilization_synth.rpt -pb top_spi_master_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Aug  7 13:52:36 2019...
+INFO: [Common 17-206] Exiting Vivado at Tue Aug 13 12:32:45 2019...

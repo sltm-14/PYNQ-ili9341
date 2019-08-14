@@ -9,14 +9,14 @@ import pkg_ili9341::*;
 	input  clk,
 	input  rst,
 
-	input  i_ena_btn,
-	input  i_resets_sent,
-	input  i_command_sent,
+	input        i_ena_btn,
+	input        i_resets_sent,
+	input        i_command_sent,
 
     output [1:0] o_state_leds,
-	output o_reset_ini_ena,
-	output o_send_comm_ena,
-	output o_command
+	output       o_reset_ini_ena,
+	output       o_send_comm_ena,
+	output       o_command
 );
   /*------------------------------------- STATES -------------------------------------*/
 
