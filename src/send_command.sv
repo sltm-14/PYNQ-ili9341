@@ -32,13 +32,13 @@ import pkg_loop::*;
 
 	localparam CN_C      = COMM_LOOP > COMM_INIT ?  $clog2(COMM_LOOP) : $clog2(COMM_INIT);
 
-	localparam CYCL8     = 3'b111;
+	localparam CYCL8     = 4'b1000;
 	localparam CN_8      = $clog2(CYCL8);
 
   /*----------------------------------- REGISTERS ------------------------------------*/
 
     logic [CN_C-1:0] cnt_comm        = COMM_INIT - 1'b1;
-    logic [CN_8-1:0] cnt_8           = CYCL8;
+    logic [CN_8:0]   cnt_8           = CYCL8;
 
     logic          r_8_ena           = LOW;
 
@@ -66,7 +66,7 @@ import pkg_loop::*;
     always @( posedge clk, negedge rst ) begin
         if(!rst)
             cnt_8 <= CYCL8;
-        else if ( r_8_ena )
+        else if ( r_8_ena && cnt_8 > 0 )
             cnt_8 <= cnt_8 - 1;
         else
             cnt_8 <= CYCL8;

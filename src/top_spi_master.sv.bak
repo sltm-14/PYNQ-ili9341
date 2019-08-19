@@ -1,13 +1,13 @@
 
 module top_spi_master(
-    input  clk, 
+    input  clk,
     input  rst,
 
-    input   miso, 
+    input   miso,
     input   init_btn,
 
     output  reset,
-    output  mosi, 
+    output  mosi,
     output  sclk,
     output  dc,
     output  cs
@@ -18,7 +18,6 @@ module top_spi_master(
     wire w_load;
 
     wire [7:0] w_data;
-
 
     ili_init_ctrl ILI_INIT(
         .clk   (clk),
@@ -33,7 +32,7 @@ module top_spi_master(
         .data  (w_data), // 7:0
         .send  (w_send)
     );
-    
+
     spi_ctrl CTRL(
         .clk      (clk),
         .rst      (rst),
@@ -47,13 +46,13 @@ module top_spi_master(
     );
 
     spi_shift SHIFT(
-        .clk      (clk), 
-        .rst      (rst), 
+        .clk      (clk),
+        .rst      (rst),
 
-        .shift_en (w_shift_ena), 
-        .load     (w_load), 
-        .miso     (miso), 
-        .data     (w_data), 
+        .shift_en (w_shift_ena),
+        .load     (w_load),
+        .miso     (miso),
+        .data     (w_data),
 
         .mosi     (mosi)
     );

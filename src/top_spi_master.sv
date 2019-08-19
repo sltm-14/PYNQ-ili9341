@@ -15,7 +15,11 @@ import pkg_ili9341::*;
     output  mosi,
     output  sclk,
     output  dc,
-    output  cs
+    output  cs,
+
+    output led,
+    output o_miso
+
 );
 
   st_top_wires wires;
@@ -107,6 +111,9 @@ import pkg_ili9341::*;
         .o_dc             (dc),
         .o_cs             (cs)
     );
+
+    assign led    = 1'b1;
+    assign o_moso = 1'b1;
 
 endmodule
 `endif

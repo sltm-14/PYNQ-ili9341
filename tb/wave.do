@@ -12,6 +12,7 @@ add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/CLK_DIV/counte
 add wave -noupdate -color Coral /tb_spi_master/TB/CLK_DIV/o_clk
 add wave -noupdate -divider OUTPUTS
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/reset
+add wave -noupdate -color Khaki -radix unsigned /tb_spi_master/TB/SEND_COMM/cnt_8
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/sclk
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/mosi
 add wave -noupdate -color {Light Blue} /tb_spi_master/TB/dc
@@ -82,7 +83,7 @@ add wave -noupdate -color Tan /tb_spi_master/TB/RST/r_15_aux
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset_sent
 add wave -noupdate -color Coral /tb_spi_master/TB/RST/o_reset
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {720391 ps} 0}
+WaveRestoreCursors {{Cursor 1} {720152 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -98,4 +99,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {720036 ps} {720501 ps}
+WaveRestoreZoom {720099 ps} {720214 ps}

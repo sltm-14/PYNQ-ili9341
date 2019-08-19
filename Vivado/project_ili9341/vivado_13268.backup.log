@@ -1,0 +1,312 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Aug  7 11:38:49 2019
+# Process ID: 13268
+# Current directory: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9096 C:\Carem\ILI9341\ILI9341\Pynq-ili9341\Vivado\project_ili9341\project_ili9341.xpr
+# Log file: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/vivado.log
+# Journal file: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.ip_user_files', nor could it be found using path 'C:/Carem/ILI/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:11 . Memory (MB): peak = 794.461 ; gain = 194.305
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 11:40:29 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 11:40:29 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 12:00:46 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 12:00:46 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 12:09:58 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 12:09:59 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+set_property top top_spi_master [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 12:13:22 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 12:13:23 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 12:21:17 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 12:21:17 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 12:37:03 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 12:37:03 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-TUL-1234-tulA" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 12:51:04 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 12:51:04 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-TUL-1234-tulA" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 13:03:23 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 13:03:23 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-TUL-1234-tulA" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 13:23:10 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 13:23:10 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 13:35:14 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 13:35:14 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-TUL-1234-tulA" may be locked by another hw_server.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug  7 13:49:52 2019] Launched synth_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/synth_1/runme.log
+[Wed Aug  7 13:49:52 2019] Launched impl_1...
+Run output will be captured here: C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/runme.log
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+current_hw_device [get_hw_devices xc7z020_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_0]
+set_property PROGRAM.FILE {C:/Carem/ILI9341/ILI9341/Pynq-ili9341/Vivado/project_ili9341/project_ili9341.runs/impl_1/top_spi_master.bit} [get_hw_devices xc7z020_0]
+program_hw_devices [get_hw_devices xc7z020_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_0] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Aug  7 14:30:02 2019...

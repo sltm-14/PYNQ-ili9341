@@ -11,6 +11,8 @@ entity top_spi_master is
         mosi            : out    vl_logic;
         sclk            : out    vl_logic;
         dc              : out    vl_logic;
-        cs              : out    vl_logic
+        cs              : out    vl_logic;
+        led             : out    vl_logic;
+        o_miso          : out    vl_logic
     );
 end top_spi_master;
