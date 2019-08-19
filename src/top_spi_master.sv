@@ -11,15 +11,14 @@ import pkg_ili9341::*;
     input   init_btn,
 
     output  [1:0] state_leds,
-    output  reset,
-    output  mosi,
-    output  sclk,
-    output  dc,
-    output  cs,
+    output        reset,
+    output        mosi,
+    output        sclk,
+    output        dc,
+    output        cs,
 
-    output led,
-    output o_miso
-
+    output        led,
+    output        o_miso
 );
 
   st_top_wires wires;
@@ -113,7 +112,7 @@ import pkg_ili9341::*;
     );
 
     assign led    = 1'b1;
-    assign o_moso = 1'b1;
+    assign o_miso = 1'b1;
 
 endmodule
 `endif
