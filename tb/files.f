@@ -1,7 +1,6 @@
 ../src/pkg_ili9341.sv
 ../src/pkg_loop.sv
 ../src/clk_divider.sv
-../src/debouncer.sv
 ../src/ili_ctrl.sv
 ../src/reset_init.sv
 ../src/reset.sv

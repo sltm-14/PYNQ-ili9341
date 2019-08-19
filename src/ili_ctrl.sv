@@ -20,18 +20,16 @@ import pkg_ili9341::*;
 );
   /*------------------------------------- STATES -------------------------------------*/
 
-  typedef enum logic [1:0] {IDLE,RESET,INIT,LOOP} state_t;
-  state_t    state = IDLE;
+    typedef enum logic [1:0] {IDLE,RESET,INIT,LOOP} state_t;
+    state_t    state = IDLE;
 
-  logic [1:0] state_leds;
-
-
+    logic [1:0] state_leds;
 
   /*----------------------------------- REGISTERS ------------------------------------*/
 
-  logic r_send_comm_ena;
-  logic r_reset_ini_ena;
-  logic r_command;
+    logic r_send_comm_ena;
+    logic r_reset_ini_ena;
+    logic r_command;
 
   /*---------------------------------- FSM STATES ------------------------------------*/
 

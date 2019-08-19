@@ -7,8 +7,8 @@ import pkg_ili9341::*;
     input  clk,
     input  rst,
 
-    input   miso,
-    input   init_btn,
+    input         miso,
+    input         init_btn,
 
     output  [1:0] state_leds,
     output        reset,

@@ -1,10 +1,10 @@
 `ifndef CLK_DIVIDER_SV
     `define CLK_DIVIDER_SV
-
+/*--------------------------------- INPUTS / OUTOUTS ---------------------------------*/
 module clk_divider
 #(
 	parameter FRECUENCY_IN  = 10,
-	parameter FRECUENCY_OUT =   5,
+	parameter FRECUENCY_OUT =  5,
 
 	parameter COUNT_LENGTH  = $clog2(FRECUENCY_IN)
 )(
@@ -15,15 +15,19 @@ module clk_divider
 	// Output signal
 	output o_clk
 );
-
-	logic [COUNT_LENGTH-1:0]counter = 0;                 // Frequency counter
+ /*----------------------------------- REGISTERS ------------------------------------*/
+	logic [COUNT_LENGTH:0]counter = 0;                   // Frequency counter
 	logic l_clk;
+
+ /*---------------------------------- PARAMETERS ------------------------------------*/
 
 	localparam CONST = (FRECUENCY_IN/FRECUENCY_OUT) / 2; // Counter limit
 
+ /*-----------------------_-------- SECUENTIAL LOOP ----------------------------------*/
+
 	always@(posedge i_clk, negedge rst) begin
 
-		if(!rst) begin                                   // Reset counter
+		if(!rst) begin                                  // Reset counter
 			l_clk   <= 0;
 			counter <= 0;
 		end
@@ -34,8 +38,8 @@ module clk_divider
 		end
 
 		else begin
-			counter <= counter + 1'b1;                  //add one to counter
-			l_clk   <= l_clk;		                    //l_clk keeps its value
+			counter <= counter + 1'b1;                  // add one to counter
+			l_clk   <= l_clk;		                    // l_clk keeps its value
 		end
 
 	end
