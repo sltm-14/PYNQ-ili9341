@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date                      : Wed Aug 14 12:04:28 2019
+| Date                      : Fri Aug 23 10:54:53 2019
 | Host                      : MXGUA05NBC18560 running 64-bit major release  (build 9200)
 | Command                   : report_io -file top_spi_master_io_placed.rpt
 | Design                    : top_spi_master
@@ -380,7 +380,7 @@ Table of Contents
 | V3         |               |            | PS_DDR_DQ31_502         | PSS IO      |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | V4         |               |            | VCCO_DDR_502            | VCCO        |             |         |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
 | V5         |               | High Range | IO_L6N_T0_VREF_13       | User IO     |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| V6         | o_miso        | High Range | IO_L22P_T3_13           | TRISTATE    | LVCMOS33    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| V6         | o_miso        | High Range | IO_L22P_T3_13           | OUTPUT      | LVCMOS33    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | V7         |               | High Range | IO_L11N_T1_SRCC_13      | User IO     |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | V8         | sclk          | High Range | IO_L15P_T2_DQS_13       | OUTPUT      | LVCMOS33    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | V9         |               |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |

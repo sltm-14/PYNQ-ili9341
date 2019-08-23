@@ -35,8 +35,8 @@ def Lcd_Write_Data(VH):
 
 def LCD_Clear(j):
     address_set(0,0,240,320)
-    for x in range(0,240):
-        for x in range(0,320):
+    for x in range(0,1):
+        for x in range(0,1):
             Lcd_Write_Data(j>>8)
             Lcd_Write_Data(j-((j>>8)<<8))
             if ( x % 4 ) == 0:
@@ -60,7 +60,7 @@ f.write("  /*----------------------------------------------------------------- L
 f.write("\n")
 f.write("  logic [9:0] loop_commands [COMM_LOOP-1:0] = {\n")
 
-LCD_Clear(0xCB39)
+LCD_Clear(0xCB38) #CB39
 Lcd_Write_Data(0)
 
 f.write("\n")

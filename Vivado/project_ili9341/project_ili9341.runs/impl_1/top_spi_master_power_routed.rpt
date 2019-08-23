@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Wed Aug 14 12:05:03 2019
+| Date             : Fri Aug 23 10:55:34 2019
 | Host             : MXGUA05NBC18560 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_spi_master_power_routed.rpt -pb top_spi_master_power_summary_routed.pb -rpx top_spi_master_power_routed.rpx
 | Design           : top_spi_master
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.108        |
+| Total On-Chip Power (W)  | 0.109        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.002        |
+| Dynamic (W)              | 0.004        |
 | Device Static (W)        | 0.106        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 83.8         |
-| Junction Temperature (C) | 26.2         |
+| Max Ambient (C)          | 83.7         |
+| Junction Temperature (C) | 26.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,16 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      388 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      190 |     53200 |            0.36 |
-|   CARRY4       |    <0.001 |       21 |     13300 |            0.16 |
-|   Register     |    <0.001 |      114 |    106400 |            0.11 |
-|   Others       |     0.000 |       13 |       --- |             --- |
+| Slice Logic    |    <0.001 |      429 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      217 |     53200 |            0.41 |
+|   CARRY4       |    <0.001 |       22 |     13300 |            0.17 |
+|   Register     |    <0.001 |      117 |    106400 |            0.11 |
+|   Others       |     0.000 |       12 |       --- |             --- |
+|   F7/F8 Muxes  |     0.000 |       14 |     53200 |            0.03 |
 |   BUFG         |     0.000 |        1 |        32 |            3.13 |
-| Signals        |    <0.001 |      276 |       --- |             --- |
-| I/O            |    <0.001 |       13 |       125 |           10.40 |
+| Signals        |    <0.001 |      299 |       --- |             --- |
+| I/O            |     0.001 |       13 |       125 |           10.40 |
 | Static Power   |     0.106 |          |           |                 |
-| Total          |     0.108 |          |           |                 |
+| Total          |     0.109 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.009 |       0.002 |      0.007 |
+| Vccint    |       1.000 |     0.010 |       0.003 |      0.007 |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -148,8 +149,8 @@ Table of Contents
 +----------------+-----------+
 | Name           | Power (W) |
 +----------------+-----------+
-| top_spi_master |     0.002 |
-|   CLK_DIV      |     0.001 |
+| top_spi_master |     0.004 |
+|   CLK_DIV      |     0.002 |
 +----------------+-----------+
 
 
