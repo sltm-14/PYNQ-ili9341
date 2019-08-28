@@ -1,4 +1,4 @@
-# PYNQ ili9341
+<!-- # PYNQ ili9341
 
 ### Srcs
 Archivos SV del proyecto
@@ -7,4 +7,4 @@ Archivos SV del proyecto
 Archivos para simulacion
 
 ### Other_files:
-Archivos no utilizados en el proyecto
+Archivos no utilizados en el proyecto -->
